@@ -1,0 +1,2627 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (RL6432_Project), 0x0000 // Tools: 'MCS-51'
+
+Group (Project)
+Group (Pcb)
+Group (Common)
+Group (Panel)
+Group (System)
+Group (ScalerFunction)
+Group (ScalerFunction_ComboPhy)
+Group (ScalerFunction_SeptPhy)
+Group (ScalerCommonFunction)
+Group (RL6432_Series_Scaler)
+Group (RL6432_Series_Common)
+Group (UserCommonFunction)
+Group (RTD2014Function)
+Group (RTD2014Osd)
+Group (RTDFactory)
+
+File 1,5,<.\Project\Header\User_Project_List.h><User_Project_List.h>
+File 1,5,<.\Project\Header\User_Project_Include.h><User_Project_Include.h>
+File 1,5,<.\Project\Header\User_Project_Option.h><User_Project_Option.h>
+File 1,5,<.\Project\Header\User_Scaler_Option.h><User_Scaler_Option.h>
+File 1,5,<.\Project\Header\RL6432_Project.h><RL6432_Project.h>
+File 2,5,<.\Pcb\User_Pcb_List.h><User_Pcb_List.h>
+File 2,5,<.\Pcb\User_Pcb_Include.h><User_Pcb_Include.h>
+File 2,5,<.\Pcb\User_Pcb_Option.h><User_Pcb_Option.h>
+File 2,5,<.\Pcb\RL6432\LQFP_156_MST\RL6432_PCB_EXAMPLE_156_PIN_MST.h><RL6432_PCB_EXAMPLE_156_PIN_MST.h>
+File 2,5,<.\Pcb\RL6432\LQFP_156_VGA\RL6432_PCB_EXAMPLE_156_PIN_VGA.h><RL6432_PCB_EXAMPLE_156_PIN_VGA.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_PCB_EXAMPLE_216_PIN.h><RL6432_PCB_EXAMPLE_216_PIN.h>
+File 2,5,<.\Pcb\RL6432\QFN_76\RL6432_PCB_EXAMPLE_76_PIN.h><RL6432_PCB_EXAMPLE_76_PIN.h>
+File 2,5,<.\Pcb\RL6432\LQFP_156_MST\RL6432_QA_C_156PIN_1MHL2DP_DPTX_LVDS_eDP.h><RL6432_QA_C_156PIN_1MHL2DP_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_156_VGA\RL6432_QA_B_156PIN_1A1MHL2DP_LVDS_eDP.h><RL6432_QA_B_156PIN_1A1MHL2DP_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_DEMO_A_216PIN_1A2MHL1DP1mDP_DPTX_LVDS_eDP.h><RL6432_DEMO_A_216PIN_1A2MHL1DP1mDP_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_DEMO_B_216PIN_1A1MHL1DP1DUALDVI_DPTX_LVDS_eDP.h><RL6432_DEMO_B_216PIN_1A1MHL1DP1DUALDVI_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_DEMO_C_D_216PIN_1A2MHL1DP1mDP_DPTX_LVDS_eDP.h><RL6432_DEMO_C_D_216PIN_1A2MHL1DP1mDP_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_DEMO_E_216PIN_2MHL1TC1DP_DPTX_LVDS_eDP.h><RL6432_DEMO_E_216PIN_2MHL1TC1DP_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_QA_A_216PIN_1A2MHL1DP1mDP_DPTX_LVDS_eDP.h><RL6432_QA_A_216PIN_1A2MHL1DP1mDP_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\LQFP_216\RL6432_QA_B_216PIN_1A2MHL2DP_DPTX_LVDS_eDP.h><RL6432_QA_B_216PIN_1A2MHL2DP_DPTX_LVDS_eDP.h>
+File 2,5,<.\Pcb\RL6432\QFN_76\RL6432_QA_B_76PIN_1A1DP_eDP.h><RL6432_QA_B_76PIN_1A1DP_eDP.h>
+File 3,5,<.\Kernel\Common\reg52_RTD.h><reg52_RTD.h>
+File 3,2,<.\Kernel\Common\L51_bank.a51><L51_bank.a51>
+File 3,2,<.\Kernel\Common\STARTUP.a51><STARTUP.a51>
+File 3,2,<.\Kernel\Common\C_STARTUP.a51><C_STARTUP.a51>
+File 3,5,<.\Kernel\Common\Debug.h><Debug.h>
+File 3,5,<.\Kernel\Common\Global.h><Global.h>
+File 3,5,<.\Kernel\Common\Project.h><Project.h>
+File 3,5,<.\Kernel\Common\Scaler_Test_Function.h><Scaler_Test_Function.h>
+File 3,5,<.\Kernel\Common\RL6369_Gen_Option.h><RL6369_Gen_Option.h>
+File 3,5,<.\Kernel\Common\RL6369_Project_Default.h><RL6369_Project_Default.h>
+File 3,5,<.\Kernel\Common\RL6369_Pcb_Default.h><RL6369_Pcb_Default.h>
+File 3,5,<.\Kernel\Common\RL6410_Gen_Option.h><RL6410_Gen_Option.h>
+File 3,5,<.\Kernel\Common\RL6410_Project_Default.h><RL6410_Project_Default.h>
+File 3,5,<.\Kernel\Common\RL6410_Pcb_Default.h><RL6410_Pcb_Default.h>
+File 3,5,<.\Kernel\Common\RL6432_Gen_Option.h><RL6432_Gen_Option.h>
+File 3,5,<.\Kernel\Common\RL6432_Project_Default.h><RL6432_Project_Default.h>
+File 3,5,<.\Kernel\Common\RL6432_Pcb_Default.h><RL6432_Pcb_Default.h>
+File 3,5,<.\Kernel\Common\RL6463_Gen_Option.h><RL6463_Gen_Option.h>
+File 3,5,<.\Kernel\Common\RL6463_Project_Default.h><RL6463_Project_Default.h>
+File 3,5,<.\Kernel\Common\RL6463_Pcb_Default.h><RL6463_Pcb_Default.h>
+File 4,5,<.\Panel\User_Panel_List.h><User_Panel_List.h>
+File 4,5,<.\Panel\User_Panel_Include.h><User_Panel_Include.h>
+File 4,5,<.\Panel\User_Panel_Option.h><User_Panel_Option.h>
+File 4,5,<.\Panel\EXAMPLE\PANEL_LVDS_EXAMPLE.h><PANEL_LVDS_EXAMPLE.h>
+File 4,5,<.\Panel\EXAMPLE\PANEL_DPTX_EXAMPLE.h><PANEL_DPTX_EXAMPLE.h>
+File 4,5,<.\Panel\EXAMPLE\PANEL_VBO_EXAMPLE.h><PANEL_VBO_EXAMPLE.h>
+File 4,5,<.\Panel\00_CMO_LVDS_17.h><00_CMO_LVDS_17.h>
+File 4,5,<.\Panel\01_CMO_LVDS_19_WXGA.h><01_CMO_LVDS_19_WXGA.h>
+File 4,5,<.\Panel\02_AU_LVDS_21_5_WUXGA.h><02_AU_LVDS_21_5_WUXGA.h>
+File 4,5,<.\Panel\03_AU_LVDS_27_WUXGA_FREESYNC.h><03_AU_LVDS_27_WUXGA_FREESYNC.h>
+File 4,5,<.\Panel\04_MULTIPANEL_LVDS_21_5_WUXGA.h><04_MULTIPANEL_LVDS_21_5_WUXGA.h>
+File 4,5,<.\Panel\05_AU_LVDS_22_WSXGA.h><05_AU_LVDS_22_WSXGA.h>
+File 4,5,<.\Panel\06_AU_LVDS_22_WSXGA_QC.h><06_AU_LVDS_22_WSXGA_QC.h>
+File 4,5,<.\Panel\07_AU_LVDS_23_WUXGA.h><07_AU_LVDS_23_WUXGA.h>
+File 4,5,<.\Panel\08_AU_LVDS_24_WUXGA.h><08_AU_LVDS_24_WUXGA.h>
+File 4,5,<.\Panel\09_AU_DP_21_5_WUXGA.h><09_AU_DP_21_5_WUXGA.h>
+File 4,5,<.\Panel\10_LG_LED_DP_27_UHD.h><10_LG_LED_DP_27_UHD.h>
+File 4,5,<.\Panel\14_LG_LED_LVDS_27_WUXGA.h><14_LG_LED_LVDS_27_WUXGA.h>
+File 4,5,<.\Panel\15_SAMSUNG_LED_DP_15_6_UHD.h><15_SAMSUNG_LED_DP_15_6_UHD.h>
+File 4,5,<.\Panel\16_AUO_LED_DP_32_UHD.h><16_AUO_LED_DP_32_UHD.h>
+File 4,5,<.\Panel\17_SAMSUNG_LED_DP_23_6_UHD.h><17_SAMSUNG_LED_DP_23_6_UHD.h>
+File 4,5,<.\Panel\18_INNOLUX_LED_VBO_28_UHD.h><18_INNOLUX_LED_VBO_28_UHD.h>
+File 4,5,<.\Panel\19_LG_LED_LVDS_23_UHD.h><19_LG_LED_LVDS_23_UHD.h>
+File 4,5,<.\Panel\20_INNOLUX_LED_VBO_40_UHD.h><20_INNOLUX_LED_VBO_40_UHD.h>
+File 4,5,<.\Panel\21_AU_LVDS_21_5_WUXGA_FREESYNC.h><21_AU_LVDS_21_5_WUXGA_FREESYNC.h>
+File 4,5,<.\Panel\23_LG_LED_DP_27_QHD.h><23_LG_LED_DP_27_QHD.h>
+File 4,5,<.\Panel\24_LG_LED_DP_27_QHD_QC.h><24_LG_LED_DP_27_QHD_QC.h>
+File 4,5,<.\Panel\25_AU_DP_21_5_WUXGA_FREESYNC.h><25_AU_DP_21_5_WUXGA_FREESYNC.h>
+File 4,5,<.\Panel\26_INNOLUX_TTL_7.h><26_INNOLUX_TTL_7.h>
+File 4,5,<.\Panel\27_MULTIPANEL_DP_21_5_WUXGA.h><27_MULTIPANEL_DP_21_5_WUXGA.h>
+File 4,5,<.\Panel\22_LG_LED_DP_27_QQHD.h><22_LG_LED_DP_27_QQHD.h>
+File 4,5,<.\Panel\28_LG_LED_DP_17_QHD.h><28_LG_LED_DP_17_QHD.h>
+File 4,5,<.\Panel\29_LG_LED_DP_34_WFHD.h><29_LG_LED_DP_34_WFHD.h>
+File 4,5,<.\Panel\30_AUO_eDP_27_UHD.h><30_AUO_eDP_27_UHD.h>
+File 4,5,<.\Panel\31_AUO_VBO_27_WUXGA_FREESYNC.h><31_AUO_VBO_27_WUXGA_FREESYNC.h>
+File 5,5,<.\Kernel\System\Header\SysInterface.h><SysInterface.h>
+File 5,5,<.\Kernel\System\Header\SysInclude.h><SysInclude.h>
+File 5,1,<.\Kernel\System\Code\SysAudio.c><SysAudio.c>
+File 5,1,<.\Kernel\System\Code\SysDP.c><SysDP.c>
+File 5,1,<.\Kernel\System\Code\SysInt.c><SysInt.c>
+File 5,1,<.\Kernel\System\Code\SysJudge.c><SysJudge.c>
+File 5,1,<.\Kernel\System\Code\SysMain.c><SysMain.c>
+File 5,1,<.\Kernel\System\Code\SysMHL.c><SysMHL.c>
+File 5,1,<.\Kernel\System\Code\SysMode.c><SysMode.c>
+File 5,1,<.\Kernel\System\Code\SysPower.c><SysPower.c>
+File 5,1,<.\Kernel\System\Code\SysSource.c><SysSource.c>
+File 5,1,<.\Kernel\System\Code\SysTimer.c><SysTimer.c>
+File 5,1,<.\Kernel\System\Code\SysTMDS.c><SysTMDS.c>
+File 5,1,<.\Kernel\System\Code\SysVGA.c><SysVGA.c>
+File 5,1,<.\Kernel\System\Code\SysColor.c><SysColor.c>
+File 5,1,<.\Kernel\System\Code\SysTypeC.c><SysTypeC.c>
+File 5,1,<.\Kernel\System\Code\SysAutotest.c><SysAutotest.c>
+File 6,5,<.\Kernel\Scaler\ScalerFunction\Header\ScalerFunctionCommonInclude.h><ScalerFunctionCommonInclude.h>
+File 6,5,<.\Kernel\Scaler\ScalerFunction\Header\ScalerFunctionInclude.h><ScalerFunctionInclude.h>
+File 6,5,<.\Kernel\Scaler\ScalerFunction\Header\ScalerFunctionInterface.h><ScalerFunctionInterface.h>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerADC.c><ScalerADC.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerAudio.c><ScalerAudio.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerAutoFunc.c><ScalerAutoFunc.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerColor.c><ScalerColor.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDDomain.c><ScalerDDomain.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDDR1.c><ScalerDDR1.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDDR3.c><ScalerDDR3.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDisplay.c><ScalerDisplay.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDisplayDPTx.c><ScalerDisplayDPTx.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRxMST.c><ScalerDPRxMST.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx0.c><ScalerDPRx0.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx0HDCP2.c><ScalerDPRx0HDCP2.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx1HDCP2.c><ScalerDPRx1HDCP2.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPTx.c><ScalerDPTx.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPTxHDCP2.c><ScalerDPTxHDCP2.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDualLinkDVI.c><ScalerDualLinkDVI.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerFormatConversion.c><ScalerFormatConversion.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerFRC.c><ScalerFRC.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerGDIPhyTx.c><ScalerGDIPhyTx.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerGlobal.c><ScalerGlobal.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerIDomain.c><ScalerIDomain.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerIR.c><ScalerIR.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerLCTank.c><ScalerLCTank.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMcu.c><ScalerMcu.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMDomain.c><ScalerMDomain.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMeasure.c><ScalerMeasure.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMemory.c><ScalerMemory.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerOD.c><ScalerOD.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerOsd.c><ScalerOsd.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerPinshare.c><ScalerPinshare.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerPLL.c><ScalerPLL.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerPower.c><ScalerPower.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerRotation.c><ScalerRotation.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerReg.c><ScalerReg.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerSDRAM.c><ScalerSDRAM.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerSync.c><ScalerSync.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerSyncProc.c><ScalerSyncProc.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTimerFunction.c><ScalerTimerFunction.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerVGATop.c><ScalerVGATop.c>
+File 6,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerVGIP.c><ScalerVGIP.c>
+File 7,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerAudio_ComboPhy.c><ScalerAudio_ComboPhy.c>
+File 7,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDP_ComboPhy.c><ScalerDP_ComboPhy.c>
+File 7,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx0_ComboPhy.c><ScalerDPRx0_ComboPhy.c>
+File 7,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx0_INT_ComboPhy.c><ScalerDPRx0_INT_ComboPhy.c>
+File 7,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDS_ComboPhy.c><ScalerTMDS_ComboPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerAudio_SeptPhy.c><ScalerAudio_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDP_SeptPhy.c><ScalerDP_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx0_INT_SeptPhy.c><ScalerDPRx0_INT_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx0_SeptPhy.c><ScalerDPRx0_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx1_INT_SeptPhy.c><ScalerDPRx1_INT_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx1_SeptPhy.c><ScalerDPRx1_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRx1HDCP2_SeptPhy.c><ScalerDPRx1HDCP2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerDPRxMST_SeptPhy.c><ScalerDPRxMST_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMHL3Rx2_SeptPhy.c><ScalerMHL3Rx2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMHL3Rx3_SeptPhy.c><ScalerMHL3Rx3_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMHLRx2_SeptPhy.c><ScalerMHLRx2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMHLRx3_SeptPhy.c><ScalerMHLRx3_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMHLRx4_SeptPhy.c><ScalerMHLRx4_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerMHLRx5_SeptPhy.c><ScalerMHLRx5_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx1_SeptPhy.c><ScalerTMDSRx1_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx1HDCP2_SeptPhy.c><ScalerTMDSRx1HDCP2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx2_SeptPhy.c><ScalerTMDSRx2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx2HDCP2_SeptPhy.c><ScalerTMDSRx2HDCP2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx3_SeptPhy.c><ScalerTMDSRx3_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx3HDCP2_SeptPhy.c><ScalerTMDSRx3HDCP2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx4_SeptPhy.c><ScalerTMDSRx4_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx4HDCP2_SeptPhy.c><ScalerTMDSRx4HDCP2_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx5_SeptPhy.c><ScalerTMDSRx5_SeptPhy.c>
+File 8,1,<.\Kernel\Scaler\ScalerFunction\Code\ScalerTMDSRx5HDCP2_SeptPhy.c><ScalerTMDSRx5HDCP2_SeptPhy.c>
+File 9,5,<.\Kernel\Scaler\ScalerCommonFunction\Header\ScalerCommonFunctionCommonInclude.h><ScalerCommonFunctionCommonInclude.h>
+File 9,5,<.\Kernel\Scaler\ScalerCommonFunction\Header\ScalerCommonFunctionInclude.h><ScalerCommonFunctionInclude.h>
+File 9,5,<.\Kernel\Scaler\ScalerCommonFunction\Header\ScalerCommonFunctionInterface.h><ScalerCommonFunctionInterface.h>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonColor.c><ScalerCommonColor.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDebug.c><ScalerCommonDebug.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPRx0.c><ScalerCommonDPRx0.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPRx0HDCP2.c><ScalerCommonDPRx0HDCP2.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPRx1.c><ScalerCommonDPRx1.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPRx1HDCP2.c><ScalerCommonDPRx1HDCP2.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPRxMST.c><ScalerCommonDPRxMST.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPTx.c><ScalerCommonDPTx.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPTxAux.c><ScalerCommonDPTxAux.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPTxHDCP2.c><ScalerCommonDPTxHDCP2.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonDPTxMST.c><ScalerCommonDPTxMST.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonFreeSync.c><ScalerCommonFreeSync.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonHDCP2.c><ScalerCommonHDCP2.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonIOSC.c><ScalerCommonIOSC.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonMcu.c><ScalerCommonMcu.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonMeasure.c><ScalerCommonMeasure.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonNVRam.c><ScalerCommonNVRam.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonPLL.c><ScalerCommonPLL.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonPower.c><ScalerCommonPower.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonReg.c><ScalerCommonReg.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonSpi.c><ScalerCommonSpi.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonSync.c><ScalerCommonSync.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTimerFunction.c><ScalerCommonTimerFunction.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTMDS.c><ScalerCommonTMDS.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTypeC.c><ScalerCommonTypeC.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTypeCPmic.c><ScalerCommonTypeCPmic.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTypeCPower.c><ScalerCommonTypeCPower.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTypeCRx0Cc.c><ScalerCommonTypeCRx0Cc.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonTypeCRx0Pd.c><ScalerCommonTypeCRx0Pd.c>
+File 9,1,<.\Kernel\Scaler\ScalerCommonFunction\Code\ScalerCommonUSB3Retimer.c><ScalerCommonUSB3Retimer.c>
+File 10,4,<.\Kernel\Scaler\RL6432_Series_Scaler\Lib\Output\RL6432_FunctionLib.LIB><RL6432_FunctionLib.LIB>
+File 10,5,<.\Kernel\Scaler\RL6432_Series_Scaler\Header\RL6432_Series_FunctionCommonInclude.h><RL6432_Series_FunctionCommonInclude.h>
+File 10,5,<.\Kernel\Scaler\RL6432_Series_Scaler\Header\RL6432_Series_FunctionInclude.h><RL6432_Series_FunctionInclude.h>
+File 10,5,<.\Kernel\Scaler\RL6432_Series_Scaler\Header\RL6432_Series_FunctionInterface.h><RL6432_Series_FunctionInterface.h>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_ADC.c><RL6432_Series_ADC.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Audio.c><RL6432_Series_Audio.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Color.c><RL6432_Series_Color.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DDomain.c><RL6432_Series_DDomain.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DDR1.c><RL6432_Series_DDR1.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Display.c><RL6432_Series_Display.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DisplayDPTx.c><RL6432_Series_DisplayDPTx.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DP.c><RL6432_Series_DP.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DP_INT.c><RL6432_Series_DP_INT.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPRx0.c><RL6432_Series_DPRx0.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPRx0_INT.c><RL6432_Series_DPRx0_INT.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPRx1.c><RL6432_Series_DPRx1.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPRx1_INT.c><RL6432_Series_DPRx1_INT.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPRxMST.c><RL6432_Series_DPRxMST.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPTx.c><RL6432_Series_DPTx.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DPTxMST.c><RL6432_Series_DPTxMST.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_DualLinkDVI.c><RL6432_Series_DualLinkDVI.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_FormatConversion.c><RL6432_Series_FormatConversion.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_FRC.c><RL6432_Series_FRC.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_GDIPhy.c><RL6432_Series_GDIPhy.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Global.c><RL6432_Series_Global.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_IDomain.c><RL6432_Series_IDomain.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_LDO.c><RL6432_Series_LDO.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Mcu.c><RL6432_Series_Mcu.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_MDomain.c><RL6432_Series_MDomain.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Measure.c><RL6432_Series_Measure.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Memory.c><RL6432_Series_Memory.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_MHL.c><RL6432_Series_MHL.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_MHLRx1.c><RL6432_Series_MHLRx1.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_MHLRx2.c><RL6432_Series_MHLRx2.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_MHLRx3.c><RL6432_Series_MHLRx3.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_OD.c><RL6432_Series_OD.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Osd.c><RL6432_Series_Osd.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Pinshare.c><RL6432_Series_Pinshare.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_PLL.c><RL6432_Series_PLL.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Power.c><RL6432_Series_Power.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_BIST.c><RL6432_Series_QC_BIST.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_Color_DDomain.c><RL6432_Series_QC_Color_DDomain.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_Color_DDomain_II.c><RL6432_Series_QC_Color_DDomain_II.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_Color_DDomain_III.c><RL6432_Series_QC_Color_DDomain_III.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_Color_IMDomain.c><RL6432_Series_QC_Color_IMDomain.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_DSPC.c><RL6432_Series_QC_DSPC.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_Main.c><RL6432_Series_QC_Main.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_OD_FRC.c><RL6432_Series_QC_OD_FRC.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_QC_OSD.c><RL6432_Series_QC_OSD.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Rotation.c><RL6432_Series_Rotation.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Scaling.c><RL6432_Series_Scaling.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_SDRAM.c><RL6432_Series_SDRAM.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Sync.c><RL6432_Series_Sync.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_SyncProc.c><RL6432_Series_SyncProc.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_TCON.c><RL6432_Series_TCON.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_TimerFunction.c><RL6432_Series_TimerFunction.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_TMDS.c><RL6432_Series_TMDS.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_TMDSRx1.c><RL6432_Series_TMDSRx1.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_TMDSRx2.c><RL6432_Series_TMDSRx2.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_TMDSRx3.c><RL6432_Series_TMDSRx3.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_VGATop.c><RL6432_Series_VGATop.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_VGIP.c><RL6432_Series_VGIP.c>
+File 10,1,<.\Kernel\Scaler\RL6432_Series_Scaler\Code\RL6432_Series_Efuse.c><RL6432_Series_Efuse.c>
+File 11,5,<.\Kernel\Scaler\RL6432_Series_Common\Header\RL6432_Series_Common_FunctionCommonInclude.h><RL6432_Series_Common_FunctionCommonInclude.h>
+File 11,5,<.\Kernel\Scaler\RL6432_Series_Common\Header\RL6432_Series_Common_FunctionInclude.h><RL6432_Series_Common_FunctionInclude.h>
+File 11,5,<.\Kernel\Scaler\RL6432_Series_Common\Header\RL6432_Series_Common_FunctionInterface.h><RL6432_Series_Common_FunctionInterface.h>
+File 11,1,<.\Kernel\Scaler\RL6432_Series_Common\Code\RL6432_Series_Common_Reg.c><RL6432_Series_Common_Reg.c>
+File 12,5,<.\Kernel\User Common Function\Header\UserCommonInclude.h><UserCommonInclude.h>
+File 12,5,<.\Kernel\User Common Function\Header\UserCommonInterface.h><UserCommonInterface.h>
+File 12,5,<.\Kernel\User Common Function\Header\UserCommonDdcciDefine.h><UserCommonDdcciDefine.h>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonAdjust.c><UserCommonAdjust.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonAuto.c><UserCommonAuto.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonDdcciFunction.c><UserCommonDdcciFunction.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonDisplayCalibrationGen0.c><UserCommonDisplayCalibrationGen0.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonDisplayCalibrationGen1.c><UserCommonDisplayCalibrationGen1.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonInterface.c><UserCommonInterface.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonHDR.c><UserCommonHDR.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonLocalDimming.c><UserCommonLocalDimming.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonModeSearch.c><UserCommonModeSearch.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonNVRamSystem.c><UserCommonNVRamSystem.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonTypecCommunication.c><UserCommonTypecCommunication.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonPortControllerEmbedded.c><UserCommonPortControllerEmbedded.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonPortControllerRts5400.c><UserCommonPortControllerRts5400.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonPortControllerUser.c><UserCommonPortControllerUser.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonUsbHubUser.c><UserCommonUsbHubUser.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonUsbHubRts5411.c><UserCommonUsbHubRts5411.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonScalerDataExchange.c><UserCommonScalerDataExchange.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonSeamlessChg.c><UserCommonSeamlessChg.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonSign.c><UserCommonSign.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonSignDdcciFunction.c><UserCommonSignDdcciFunction.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonSignKeyTable.c><UserCommonSignKeyTable.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonPortControllerCommon.c><UserCommonPortControllerCommon.c>
+File 12,1,<.\Kernel\User Common Function\Code\UserCommonGlobalDimming.c><UserCommonGlobalDimming.c>
+File 13,5,<.\User\RTD Series\RTD2014Function\Header\RTD2014UserInclude.h><RTD2014UserInclude.h>
+File 13,5,<.\User\RTD Series\RTD2014Function\Header\RTD2014UserModeTable.h><RTD2014UserModeTable.h>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserInterface.c><RTD2014UserInterface.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserAdjust.c><RTD2014UserAdjust.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserAdjust3DGamma.c><RTD2014UserAdjust3DGamma.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserAdjustOutputGamma.c><RTD2014UserAdjustOutputGamma.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserAdjustRGBGamma.c><RTD2014UserAdjustRGBGamma.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserAdjustUniformity.c><RTD2014UserAdjustUniformity.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserBoot.c><RTD2014UserBoot.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserTypeCInterface.c><RTD2014UserTypeCInterface.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserInterfaceHDR.c><RTD2014UserInterfaceHDR.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserInterfaceLocalDimming.c><RTD2014UserInterfaceLocalDimming.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserInterfaceDimming.c><RTD2014UserInterfaceDimming.c>
+File 13,1,<.\User\RTD Series\RTD2014Function\Code\RTD2014UserInterfaceGlobalDimming.c><RTD2014UserInterfaceGlobalDimming.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\w74m00av.c><w74m00av.c>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\w74m00av.h><w74m00av.h>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\RTD2014Include.h><RTD2014Include.h>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\RTD2014TimerInclude.h><RTD2014TimerInclude.h>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\RTD2014TimerEventIDUser.h><RTD2014TimerEventIDUser.h>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\RTD2014Project.h><RTD2014Project.h>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\RTD2014NVRamOsd.h><RTD2014NVRamOsd.h>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014NVRamOsd.c><RTD2014NVRamOsd.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014Ddcci.c><RTD2014Ddcci.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014Key.c><RTD2014Key.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014Osd.c><RTD2014Osd.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdDisplay.c><RTD2014OsdDisplay.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdFontProp.c><RTD2014OsdFontProp.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdFontTable.c><RTD2014OsdFontTable.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdFontVLC.c><RTD2014OsdFontVLC.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdFunc.c><RTD2014OsdFunc.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdPalette.c><RTD2014OsdPalette.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdWindow.c><RTD2014OsdWindow.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdFontDynamicIcon_1.c><RTD2014OsdFontDynamicIcon_1.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdFontDynamicIcon_2.c><RTD2014OsdFontDynamicIcon_2.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\RTD2014OsdPropPutStringFontTable.c><RTD2014OsdPropPutStringFontTable.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\spi_secure.c><spi_secure.c>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\spi_secure.h><spi_secure.h>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\uart.c><uart.c>
+File 14,1,<.\User\RTD Series\RTD2014Osd\Code\tiling.c><tiling.c>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\tiling.h><tiling.h>
+File 14,5,<.\User\RTD Series\RTD2014Osd\Header\uart.h><uart.h>
+File 15,5,<.\User\RTD Factory\Header\RTDFactoryInclude.h><RTDFactoryInclude.h>
+File 15,1,<.\User\RTD Factory\Code\RTDFactoryFunction.c><RTDFactoryFunction.c>
+File 15,1,<.\User\RTD Factory\Code\RTDFactoryMode.c><RTDFactoryMode.c>
+
+
+Options 1,0,0  // Target 'RL6432_Project'
+ Device (DW-8051)
+ Vendor (Synopsys)
+ Cpu (IRAM(0-0xFF) CLOCK(33000000) MODDP2)
+ FlashUt ()
+ StupF ("LIB\STARTUP.A51" ("Standard 8051 Startup Code"))
+ FlashDR ()
+ DevID (3334)
+ Rgf (REG320.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin (d:\Keil\C51\BIN\)
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿDallas\)
+ OrgReg (ÿDallas\)
+ TgStat=16
+ OutDir (.\Output\RL6432\)
+ OutName (RL6432_Project)
+ GenApp=0
+ GenLib=1
+ GenHex=1
+ Debug=1
+ Browse=0
+ LstDir (.\Output\RL6432\)
+ HexSel=0
+ MG32K=0
+ TGMORE=8
+ RunUsr 0 0 <".\Bin\RL6432_Project.cmd">
+ RunUsr 1 1 <".\Tool\build\link.bat" "$K" !P @L>
+ BrunUsr 0 1 <.\Tool\precompile\pch_support.bat @L !P "" "$K">
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <"..\Tool\checker\bin\uv_checker.bat" "!E" $K !P @L>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ MODEL5=2
+ RTOS5=0
+ ROMSZ5=2
+ DHOLD5=0
+ XHOLD5=0
+ T51FL=8464
+ XT51FL=0
+ CBANKS5=3
+ XBANKS5=0
+ RCB51 { 0,0,0,0,0,255,255,0,0 }
+ RXB51 { 0,0,0,0,0,0,0,0,0 }
+ OCM51 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCR51 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IRO51 { 1,0,0,0,0,0,0,0,0 }
+ IRA51 { 0,0,0,0,0,0,1,0,0 }
+ XRA51 { 0,0,0,0,0,0,0,0,0 }
+ XRA512 { 0,0,0,0,0,0,0,0,0 }
+ IROM512 { 0,0,0,0,0,0,0,0,0 }
+ C51FL=21646608
+ C51VA=0
+ C51MSC ()
+ C51DEF (_PROJECT = _RL6432_PROJECT, _SCALER_TYPE = _RL6432_SERIES)
+ C51UDF ()
+ INCC5 (.\Output\RL6432;.\Project\Header;.\Pcb;.\Panel;.\Kernel\Device\Header;.\Kernel\Common;.\Kernel\System\Header;.\Kernel\Scaler\ScalerFunction\Header;.\Kernel\Scaler\ScalerCommonFunction\Header;.\Kernel\Scaler\ScalerFunction\Lib\Header;.\Kernel\Scaler\ScalerCommonFunction\Lib\Header;.\Kernel\Scaler\RL6432_Series_Scaler\Header;.\Kernel\Scaler\RL6432_Series_Common\Header;.\Kernel\Scaler\RL6432_Series_Scaler\Lib\Header;.\Kernel\Scaler\RL6432_Series_Common\Lib\Header;.\Kernel\User Common Function\Header;.\User\RTD Series\RTD2014Function\Header;.\User\RTD Series\RTD2014Osd\Header;.\User\RTD Factory\Header;.\User\None Series\NoneFunction\Header;.\User\None Series\NoneOsd\Header;.\User\None Factory\Header)
+ AX51FL=4
+ AX51MSC (DEFINE(_PROJECT=_RL6432_PROJECT,_SCALER_TYPE=_RL6432_SERIES))
+ AX51SET ()
+ AX51RST ()
+ INCA5 (.\Project\Header;.\Kernel\Common)
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ LX51FL=293
+ LX51OVL ()
+ LX51MSC ()
+ LX51DWN ()
+ LX51LFI (.\Project\Header\RL6432_Project_Link.lin)
+ LX51ASN ()
+ LX51RES ()
+ LX51CCL ()
+ LX51UCL ()
+ LX51CSC ()
+ LX51UCS ()
+ LX51COB ()
+ LX51XDB ()
+ LX51PDB ()
+ LX51BIB ()
+ LX51DAB ()
+ LX51IDB ()
+ LX51PRC ()
+ LX51STK ()
+ LX51COS ()
+ LX51XDS ()
+ LX51BIS ()
+ LX51DAS ()
+ LX51IDS ()
+  OPTDL (S8051.DLL)()(DCore51.DLL)(-pDW8051)(S8051.DLL)()(TP51.DLL)(-p320)
+  OPTDBG 44029,0,()()()()()()()()()() (BIN\MON51.DLL)()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+
+Options 1,1,0  // Group 'Project'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=0
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,3,0  // Group 'Common'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=0
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,5,0  // Group 'System'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,6,0  // Group 'ScalerFunction'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,7,0  // Group 'ScalerFunction_ComboPhy'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=0
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,8,0  // Group 'ScalerFunction_SeptPhy'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,9,0  // Group 'ScalerCommonFunction'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,10,0  // Group 'RL6432_Series_Scaler'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,11,0  // Group 'RL6432_Series_Common'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=0
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,12,0  // Group 'UserCommonFunction'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,13,0  // Group 'RTD2014Function'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=9
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,14,0  // Group 'RTD2014Osd'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=7
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,15,0  // Group 'RTDFactory'
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=10
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,3,25  // File 'C_STARTUP.a51'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ AX51FL=170
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 ()
+EndOpt
+
+Options 1,5,79  // File 'SysAudio.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,5,80  // File 'SysDP.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,5,81  // File 'SysInt.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=0
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,5,84  // File 'SysMHL.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,5,86  // File 'SysPower.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,5,90  // File 'SysVGA.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,95  // File 'ScalerFunctionInclude.h'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+EndOpt
+
+Options 1,6,96  // File 'ScalerFunctionInterface.h'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+EndOpt
+
+Options 1,6,97  // File 'ScalerADC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,98  // File 'ScalerAudio.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,99  // File 'ScalerAutoFunc.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,100  // File 'ScalerColor.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,101  // File 'ScalerDDomain.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,103  // File 'ScalerDDR3.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,104  // File 'ScalerDisplay.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,105  // File 'ScalerDisplayDPTx.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,106  // File 'ScalerDPRxMST.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,110  // File 'ScalerDPTx.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,114  // File 'ScalerFRC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,115  // File 'ScalerGDIPhyTx.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,116  // File 'ScalerGlobal.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,117  // File 'ScalerIDomain.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,120  // File 'ScalerMcu.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,122  // File 'ScalerMeasure.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,123  // File 'ScalerMemory.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,124  // File 'ScalerOD.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,126  // File 'ScalerPinshare.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,127  // File 'ScalerPLL.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,128  // File 'ScalerPower.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,130  // File 'ScalerReg.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,131  // File 'ScalerSDRAM.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,132  // File 'ScalerSync.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,133  // File 'ScalerSyncProc.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,134  // File 'ScalerTimerFunction.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,6,135  // File 'ScalerVGATop.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,8,154  // File 'ScalerMHLRx4_SeptPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,8,155  // File 'ScalerMHLRx5_SeptPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,8,162  // File 'ScalerTMDSRx4_SeptPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,8,163  // File 'ScalerTMDSRx4HDCP2_SeptPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,8,164  // File 'ScalerTMDSRx5_SeptPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,8,165  // File 'ScalerTMDSRx5HDCP2_SeptPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,169  // File 'ScalerCommonColor.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,170  // File 'ScalerCommonDebug.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=0
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,175  // File 'ScalerCommonDPRxMST.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,176  // File 'ScalerCommonDPTx.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,177  // File 'ScalerCommonDPTxAux.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,179  // File 'ScalerCommonDPTxMST.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,183  // File 'ScalerCommonMcu.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=1
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,9,186  // File 'ScalerCommonPLL.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,199  // File 'RL6432_FunctionLib.LIB'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+EndOpt
+
+Options 1,10,203  // File 'RL6432_Series_ADC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,204  // File 'RL6432_Series_Audio.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,205  // File 'RL6432_Series_Color.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,210  // File 'RL6432_Series_DP.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=4
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,211  // File 'RL6432_Series_DP_INT.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=4
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,212  // File 'RL6432_Series_DPRx0.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=4
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,213  // File 'RL6432_Series_DPRx0_INT.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=4
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,214  // File 'RL6432_Series_DPRx1.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=5
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,215  // File 'RL6432_Series_DPRx1_INT.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=4
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,217  // File 'RL6432_Series_DPTx.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,221  // File 'RL6432_Series_FRC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,222  // File 'RL6432_Series_GDIPhy.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,230  // File 'RL6432_Series_MHL.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=5
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,231  // File 'RL6432_Series_MHLRx1.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=5
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,232  // File 'RL6432_Series_MHLRx2.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=4
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,233  // File 'RL6432_Series_MHLRx3.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=5
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,234  // File 'RL6432_Series_OD.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,237  // File 'RL6432_Series_PLL.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=3
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,239  // File 'RL6432_Series_QC_BIST.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=16
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,240  // File 'RL6432_Series_QC_Color_DDomain.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=11
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,241  // File 'RL6432_Series_QC_Color_DDomain_II.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=14
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,242  // File 'RL6432_Series_QC_Color_DDomain_III.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=15
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,243  // File 'RL6432_Series_QC_Color_IMDomain.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=12
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,244  // File 'RL6432_Series_QC_DSPC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=12
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,245  // File 'RL6432_Series_QC_Main.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=12
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,246  // File 'RL6432_Series_QC_OD_FRC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=15
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,247  // File 'RL6432_Series_QC_OSD.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=0
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=16
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,250  // File 'RL6432_Series_SDRAM.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=2
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,252  // File 'RL6432_Series_SyncProc.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=6
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,255  // File 'RL6432_Series_TMDS.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=5
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,256  // File 'RL6432_Series_TMDSRx1.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=13
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,257  // File 'RL6432_Series_TMDSRx2.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=13
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,258  // File 'RL6432_Series_TMDSRx3.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=15
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,10,259  // File 'RL6432_Series_VGATop.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=15
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,12,269  // File 'UserCommonAdjust.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,13,294  // File 'RTD2014UserInterface.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=9
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,13,296  // File 'RTD2014UserAdjust3DGamma.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=13
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,13,297  // File 'RTD2014UserAdjustOutputGamma.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=12
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,13,298  // File 'RTD2014UserAdjustRGBGamma.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=9
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,13,299  // File 'RTD2014UserAdjustUniformity.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=10
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,313  // File 'RTD2014NVRamOsd.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=9
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,314  // File 'RTD2014Ddcci.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=9
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,320  // File 'RTD2014OsdFontVLC.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=8
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,322  // File 'RTD2014OsdPalette.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=11
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,323  // File 'RTD2014OsdWindow.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=10
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,324  // File 'RTD2014OsdFontDynamicIcon_1.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=8
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,14,325  // File 'RTD2014OsdFontDynamicIcon_2.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=11
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
