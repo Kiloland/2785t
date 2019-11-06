@@ -12,15 +12,16 @@ void s_help(char *params);
 void s_rootkey(char*para);
 
 //void s_power(char *para);
-//void s_contrast(char *para) ;
-//void s_brightness(char *para) ;
-//void s_sharpness(char *para) ;
+void s_contrast(char *para) ;
+void s_brightness(char *para) ;
+void s_sharpness(char *para) ;
 void s_backlight(char *para) ;
 void s_reset(char *para) ;
 void s_secureboot(char *para);
 void s_pq(char* para);
 void s_gamma(char* para);
 void s_gdata(char*para);
+void s_rotate(char*para);
 
 //void s_colortemp(char *para) ;
 //void s_tiling(char*para);
@@ -31,13 +32,14 @@ void s_gdata(char*para);
 //void g_colorinfo(char*para);
 // get
 //void g_power(char *para);
-//void g_contrast(char *para) ;
-//void g_brightness(char* para);
-//void g_sharpness(char *para) ;
+void g_contrast(char *para) ;
+void g_brightness(char* para);
+void g_sharpness(char *para) ;
 void g_backlight(char *para) ;
 //void g_colortemp(char *para) ;
 //void g_aspect(char*para);
 //void g_paneltime(char*para);
+#define TEST_ARGS_SPLIT " "
 
 BYTE acRecvBuf[MAX_BUFF_SIZE]={0};
 BYTE g_pucUartData[MAX_BUFF_SIZE]={0};
@@ -48,9 +50,9 @@ BYTE gB_dummy ;
 ///////////////////////////////////////
 const struct command commands[] = {
 
-//  {"s_contrast", s_contrast, "s_contrast 0~100\r\n"},
-//  {"s_brightness", s_brightness, "s_brightness 0~100\r\n"},
-//  {"s_sharpness", s_sharpness, "s_sharpness 0~4\r\n"},
+  {"s_contrast", s_contrast, "s_contrast 0~100\r\n"},
+  {"s_brightness", s_brightness, "s_brightness 0~100\r\n"},
+  {"s_sharpness", s_sharpness, "s_sharpness 0~4\r\n"},
     {"s_backlight", s_backlight, "s_backlight 0~100\r\n"},
 //  {"s_power",s_power,"s_power 0/1\r\n"} ,
     {"reset",s_reset,"reset:user reset\r\n"} ,
@@ -63,14 +65,15 @@ const struct command commands[] = {
 	{"s_pq", s_pq, "s_pq 0~1\r\n"},
 	{"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
 	{"s_gdata", s_gdata, "s_gdata \r\n"},
+	{"s_rotate", s_rotate, "s_rotate angle(0~3) size(0~2)\r\n"},
 
  // {"g_colorinfo", g_colorinfo, "g_colorinfo : colorspace colorrange colorimetry \r\n"},
    
  // {"g_colortemp", g_colortemp, "g_colortemp:get colotemp value\r\n"},
  // {"g_power",g_power,"g_power:get power status\r\n"} ,
- // {"g_contrast",g_contrast,"g_contrast:get contrast value\r\n"} ,
- // {"g_brightness",g_brightness,"g_brightness:get brightness value\r\n"} ,
- // {"g_sharpness", g_sharpness, "g_sharpness:get sharpness value \r\n"},
+  {"g_contrast",g_contrast,"g_contrast:get contrast value\r\n"} ,
+  {"g_brightness",g_brightness,"g_brightness:get brightness value\r\n"} ,
+  {"g_sharpness", g_sharpness, "g_sharpness:get sharpness value \r\n"},
    {"g_backlight", g_backlight, "g_backlight:get backlight value\r\n"},
  // {"g_aspect", g_aspect, "g_aspect:get aspect ratio value\r\n"},
  // {"g_paneltime", g_paneltime, "g_paneltime:get panel time (hour min)\r\n"},
@@ -248,13 +251,7 @@ void g_colortemp(char *para)
   printf("%d\r\n" , u32Para);  
 
 }
-void s_reset(char *para) 
-{
-  para =NULL;
-  OsdDispOsdReset();
-  sendOK();
 
-}
 /*
 void g_power(char *para) // power command
 {
@@ -316,10 +313,30 @@ void s_power(char *para) // power command
 
 }
 */
+
+
+#endif
+void s_rotate(char*para)
+{
+
+	BYTE gB_rotate=0 ,gB_size=0 ; 
+		
+	if(para==NULL) return ;
+	
+     sscanf(para,  "%d" TEST_ARGS_SPLIT "%d" ,	&gB_rotate ,  &gB_size); // format string
+		
+     SET_OSD_DISP_ROTATE(gB_rotate); // 0,1,2,3
+	 SET_OSD_DISP_ROTATION_SIZE_TYPE(gB_size); // 0,1,2
+	 SysModeSetResetTarget(_MODE_ACTION_RESET_TO_DISPLAY_SETTING);
+	 SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
+
+    sendOK(); 
+}
+
 void g_contrast(char *para) 
 {
 
-  WORD u32Para;
+  BYTE u32Para;
   para= NULL;
   u32Para = UserCommonAdjustRealValueToPercent(GET_OSD_CONTRAST(), _CONTRAST_MAX, _CONTRAST_MIN, _CONTRAST_CENTER);
   printf("%d\r\n" , u32Para);  
@@ -329,39 +346,36 @@ void g_contrast(char *para)
 void s_contrast(char *para) 
 {
 
-    WORD u32Para;
+    BYTE u32Para;
 
     if (para == NULL)
     {
         return;
     }
-#if 1	
-//printf("\r\n con value =%s \r\n" , para);
+
+
    u32Para = atoi(para);
-//printf("b : contrast value =%d \r\n" , u32Para);
-   // range check
 
    if(u32Para>=0 && u32Para<=100)
    {
     u32Para = UserCommonAdjustPercentToRealValue(u32Para, _CONTRAST_MAX, _CONTRAST_MIN, _CONTRAST_CENTER);
      SET_OSD_CONTRAST(u32Para);
-   //  printf("a : contrast value =%d \r\n" , u32Para);
-    // UserAdjustContrast(GET_OSD_SYSTEM _SELECT_REGION(), u32Para);
+ 
      UserAdjustContrast(GET_OSD_CONTRAST());
-       UserAdjustBrightness(GET_OSD_BRIGHTNESS());
-     //SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_REGIONDATA_MSG);
+     UserAdjustBrightness(GET_OSD_BRIGHTNESS());
+     SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
       sendOK();	
    }
    else{
 	  sendERR();
 
    }
- #endif  
+ 
 }
 void g_brightness(char *para) 
 {
 
-  WORD u32Para;
+  BYTE u32Para;
   para= NULL;
   u32Para = UserCommonAdjustRealValueToPercent(GET_OSD_BRIGHTNESS(), _BRIGHTNESS_MAX, _BRIGHTNESS_MIN, _BRIGHTNESS_CENTER);
   printf("%d\r\n" , u32Para);  
@@ -370,7 +384,7 @@ void g_brightness(char *para)
 void s_brightness(char *para) 
 {
 
-    WORD u32Para;
+    BYTE u32Para;
 
     if (para == NULL)
     {
@@ -389,7 +403,7 @@ void s_brightness(char *para)
     // UserAdjustBrightness(GET_OSD_SYSTEM_SELECT_REGION(), u32Para);
       UserAdjustBrightness(GET_OSD_BRIGHTNESS());
       UserAdjustContrast(GET_OSD_CONTRAST());
-     // SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_REGIONDATA_MSG);
+      SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
         sendOK();	
    }
    else{
@@ -400,7 +414,7 @@ void s_brightness(char *para)
 void g_sharpness(char *para) 
 {
 
-    WORD u32Para;
+    BYTE u32Para;
 
     para=NULL;
 
@@ -422,21 +436,19 @@ void s_sharpness(char *para)
     // range check
    if(u32Para>=0 && u32Para<=4)
    {
-	   SET_OSD_SHARPNESS(u32Para);
+	  SET_OSD_SHARPNESS(u32Para);
 	   
-	    UserCommonAdjustSharpness(SysSourceGetInputPort());
-	   //SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_INPUTPORTDATA_MSG);
+	  UserCommonAdjustSharpness(SysSourceGetInputPort());
+	   SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
       sendOK();
 
    }
-   else{
-
+   else
+   {
 	 sendERR();
-
    }
 }
 
-#endif
 void s_reset(char *para) 
 {
   para =NULL;
@@ -508,6 +520,7 @@ void s_gamma(char* para)
         UserAdjustGamma(u32Para);
         ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
         UserCommonAdjustGammaRegionEnable(_FUNCTION_ON);
+		 SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
     }	
 #endif	
 	sendOK();
@@ -543,7 +556,7 @@ void s_gdata(char*para)
 void g_backlight(char *para) 
 {
 
-  WORD u32Para;
+  BYTE u32Para;
   para= NULL;
   u32Para = UserCommonAdjustRealValueToPercent(GET_OSD_BACKLIGHT(), _BACKLIGHT_MAX, _BACKLIGHT_MIN, _BACKLIGHT_CENTER);
   printf("%d\r\n" , u32Para);  
@@ -552,7 +565,7 @@ void g_backlight(char *para)
 void s_backlight(char *para) 
 {
 
-    WORD u32Para;
+    BYTE u32Para;
 
     if (para == NULL)
     {
