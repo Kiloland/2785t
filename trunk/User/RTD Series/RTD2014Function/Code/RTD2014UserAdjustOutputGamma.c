@@ -79,40 +79,8 @@ extern void ScalerBurstWrite(BYTE *pucAddress, WORD usWriteLength, BYTE ucBankNu
 #define _GAMMA_WRITE_TO_LATCH                   1
 
 
-#define GAMMA_AMOUNT 6
-#define GAMMA_SIZE 320 //2052
-#define CHECKSUM 0xAA
-// mode1
-#define GAMMA_MODE1_ADDRESS_START _PANEL_TIME_DATA_ADDRESS_END + 1 // checksum
-#define GAMMA_MODE1_ADDRESS GAMMA_MODE1_ADDRESS_START + GAMMA_SIZE*3 
-#define GAMMA_MODE1_ADDRESS_END GAMMA_MODE1_ADDRESS + 1
-//mode2
-#define GAMMA_MODE2_ADDRESS_START GAMMA_MODE1_ADDRESS_END + 1 // checksum
-#define GAMMA_MODE2_ADDRESS GAMMA_MODE2_ADDRESS_START + GAMMA_SIZE*3 
-#define GAMMA_MODE2_ADDRESS_END GAMMA_MODE2_ADDRESS + 1
-
-
-//mode3
-#define GAMMA_MODE3_ADDRESS_START GAMMA_MODE2_ADDRESS_END + 1 // checksum 
-#define GAMMA_MODE3_ADDRESS GAMMA_MODE3_ADDRESS_START + GAMMA_SIZE*3
-#define GAMMA_MODE3_ADDRESS_END GAMMA_MODE3_ADDRESS + 1
-
-// mode4
-#define GAMMA_MODE4_ADDRESS_START GAMMA_MODE3_ADDRESS_END + 1 // checksum
-#define GAMMA_MODE4_ADDRESS GAMMA_MODE4_ADDRESS_START + GAMMA_SIZE*3
-#define GAMMA_MODE4_ADDRESS_END GAMMA_MODE4_ADDRESS + 1
-
-
-// mode5
-#define GAMMA_MODE5_ADDRESS_START GAMMA_MODE4_ADDRESS_END + 1 // checksum
-#define GAMMA_MODE5_ADDRESS GAMMA_MODE5_ADDRESS_START + GAMMA_SIZE*3
-#define GAMMA_MODE5_ADDRESS_END GAMMA_MODE5_ADDRESS + 1
-
-// mode6
-#define GAMMA_MODE6_ADDRESS_START GAMMA_MODE5_ADDRESS_END + 1 // checksum
-#define GAMMA_MODE6_ADDRESS GAMMA_MODE6_ADDRESS_START + GAMMA_SIZE*3
-#define GAMMA_MODE6_ADDRESS_END GAMMA_MODE6_ADDRESS + 1
-
+//----------------------------------------------------------------------------
+// customized function
 
 void uncompress(uint8_t pgamma[320] , uint8_t buf[2052]) // 256*10bit to 1024*14bit
 {
@@ -192,68 +160,8 @@ void uncompress(uint8_t pgamma[320] , uint8_t buf[2052]) // 256*10bit to 1024*14
 
 
 
-void RTDEepromLoadGammaModeData(uint8_t index , uint8_t channel , uint8_t buf_out[2052])
-{
-  switch(index)
-  {
-    default:
-    case 0:
-		UserCommonEepromRead(GAMMA_MODE1_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 1:
-		UserCommonEepromRead(GAMMA_MODE2_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 2:
-		UserCommonEepromRead(GAMMA_MODE3_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 3:
-		UserCommonEepromRead(GAMMA_MODE4_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 4:
-		UserCommonEepromRead(GAMMA_MODE5_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 5:
-		UserCommonEepromRead(GAMMA_MODE6_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
 
-  }
-    
-}
-
-//--------------------------------------------------
-// Description  :
-// Input Value  :
-// Output Value :
-//--------------------------------------------------
 /*
-
-void RTDEepromSaveGammaModeData(uint8_t index, uint8_t channel , uint8_t buf_out[2052])
-{
-  switch(index)
-  {
-    default:
-    case 0:
-		 UserCommonEepromWrite(GAMMA_MODE1_ADDRESS_START + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 1:
-		 UserCommonEepromWrite(GAMMA_MODE2_ADDRESS_START + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 2:
-		 UserCommonEepromWrite(GAMMA_MODE3_ADDRESS_START + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 3:
-		 UserCommonEepromWrite(GAMMA_MODE4_ADDRESS_START + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 4:
-		 UserCommonEepromWrite(GAMMA_MODE5_ADDRESS_START + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-	 case 5:
-		 UserCommonEepromWrite(GAMMA_MODE6_ADDRESS_START + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
-	break;
-  }
-   
-}
-
 void RTDEepromRestoreGammaModeData(void)
 {
 
@@ -400,6 +308,12 @@ void UserAdjustGamma(BYTE ucGamma)
 #if(_CONTRAST_SUPPORT == _ON)
         UserAdjustContrast(GET_OSD_CONTRAST());
 #endif
+
+#if(_BRIGHTNESS_SUPPORT == _ON)
+        UserAdjustBrightness(GET_OSD_BRIGHTNESS());
+#endif
+
+
 
 #else
 

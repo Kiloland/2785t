@@ -324,6 +324,8 @@ void RTDEepromRestoreSixColorData(void);
 void RTDEepromLoadPanelUsedTimeData(void);
 void RTDEepromSavePanelUsedTimeData(void);
 void RTDEepromRestorePanelUsedTimeData(void);
+void RTDEepromLoadGammaModeData(uint8_t index , uint8_t channel , uint8_t* buf_out);
+void RTDEepromSaveGammaModeData(uint8_t index, uint8_t channel , int idx ,int size , uint8_t *buf_in);
 
 #else // Else of #if(_SYSTEM_EEPROM_EMULATION_SUPPORT == _OFF)
 
@@ -367,6 +369,72 @@ void RTDFlashRestorePanelIndex(void);
 // FUNCTION DEFINITIONS
 //****************************************************************************
 #if(_SYSTEM_EEPROM_EMULATION_SUPPORT == _OFF)
+
+// customized function
+//---------------------------------------------------
+void RTDEepromLoadGammaModeData(uint8_t index , uint8_t channel , uint8_t* buf_out)
+{
+  switch(index)
+  {
+    default:
+    case 0:
+		UserCommonEepromRead(GAMMA_MODE1_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+	break;
+	 case 1:
+		UserCommonEepromRead(GAMMA_MODE2_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+	break;
+	 case 2:
+		UserCommonEepromRead(GAMMA_MODE3_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+	break;
+	 case 3:
+		UserCommonEepromRead(GAMMA_MODE4_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+	break;
+	 case 4:
+		UserCommonEepromRead(GAMMA_MODE5_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+	break;
+	 case 5:
+		UserCommonEepromRead(GAMMA_MODE6_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+	break;
+
+  }
+    
+}
+
+//--------------------------------------------------
+// Description  :
+// Input Value  :
+// Output Value :
+//--------------------------------------------------
+void RTDEepromSaveGammaModeData(uint8_t index, uint8_t channel , int idx ,int size , uint8_t *buf_in)
+{
+  switch(index)
+  {
+    default:
+    case 0:
+		 UserCommonEepromWrite(GAMMA_MODE1_ADDRESS_START + channel * GAMMA_SIZE + (idx*size), size, (uint8_t *)(&buf_in));
+	break;
+	
+	 case 1:
+		 UserCommonEepromWrite(GAMMA_MODE2_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+	break;
+	 case 2:
+		 UserCommonEepromWrite(GAMMA_MODE3_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+	break;
+	 case 3:
+		 UserCommonEepromWrite(GAMMA_MODE4_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+	break;
+	 case 4:
+		 UserCommonEepromWrite(GAMMA_MODE5_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+	break;
+	 case 5:
+		 UserCommonEepromWrite(GAMMA_MODE6_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+	break;
+	
+  }
+   
+}
+
+
 //--------------------------------------------------
 // Description  : Eeprom check at firmware startup
 // Input Value  : None

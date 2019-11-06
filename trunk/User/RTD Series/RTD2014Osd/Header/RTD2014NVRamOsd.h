@@ -32,6 +32,45 @@
 #define _PANEL_TIME_DATA_ADDRESS                       (_FACTORY_SETTING_DATA_ADDRESS)
 #define _PANEL_TIME_DATA_ADDRESS_END                   (_PANEL_TIME_DATA_ADDRESS + sizeof(StructTimeType))
 
+
+#define GAMMA_AMOUNT 6
+#define GAMMA_SIZE 320 //2052
+
+// mode1
+#define GAMMA_MODE1_ADDRESS_START _PANEL_TIME_DATA_ADDRESS_END + 1 // checksum
+#define GAMMA_MODE1_ADDRESS GAMMA_MODE1_ADDRESS_START + GAMMA_SIZE*3 
+#define GAMMA_MODE1_ADDRESS_END GAMMA_MODE1_ADDRESS + 1
+//mode2
+#define GAMMA_MODE2_ADDRESS_START GAMMA_MODE1_ADDRESS_END + 1 // checksum
+#define GAMMA_MODE2_ADDRESS GAMMA_MODE2_ADDRESS_START + GAMMA_SIZE*3 
+#define GAMMA_MODE2_ADDRESS_END GAMMA_MODE2_ADDRESS + 1
+
+
+//mode3
+#define GAMMA_MODE3_ADDRESS_START GAMMA_MODE2_ADDRESS_END + 1 // checksum 
+#define GAMMA_MODE3_ADDRESS GAMMA_MODE3_ADDRESS_START + GAMMA_SIZE*3
+#define GAMMA_MODE3_ADDRESS_END GAMMA_MODE3_ADDRESS + 1
+
+// mode4
+#define GAMMA_MODE4_ADDRESS_START GAMMA_MODE3_ADDRESS_END + 1 // checksum
+#define GAMMA_MODE4_ADDRESS GAMMA_MODE4_ADDRESS_START + GAMMA_SIZE*3
+#define GAMMA_MODE4_ADDRESS_END GAMMA_MODE4_ADDRESS + 1
+
+
+// mode5
+#define GAMMA_MODE5_ADDRESS_START GAMMA_MODE4_ADDRESS_END + 1 // checksum
+#define GAMMA_MODE5_ADDRESS GAMMA_MODE5_ADDRESS_START + GAMMA_SIZE*3
+#define GAMMA_MODE5_ADDRESS_END GAMMA_MODE5_ADDRESS + 1
+
+// mode6
+#define GAMMA_MODE6_ADDRESS_START GAMMA_MODE5_ADDRESS_END + 1 // checksum
+#define GAMMA_MODE6_ADDRESS GAMMA_MODE6_ADDRESS_START + GAMMA_SIZE*3
+#define GAMMA_MODE6_ADDRESS_END GAMMA_MODE6_ADDRESS + 1
+
+
+
+
+
 //--------------------------------------------------------------------------------------------
 #endif
 
@@ -207,6 +246,9 @@ extern void RTDEepromRestoreUserColorSetting(void);
 extern void RTDEepromSaveSixColorData(void);
 extern void RTDEepromRestoreSixColorData(void);
 extern void RTDEepromSavePanelUsedTimeData(void);
+extern void RTDEepromLoadGammaModeData(uint8_t index , uint8_t channel , uint8_t* buf_out);
+extern void RTDEepromSaveGammaModeData(uint8_t index, uint8_t channel , int idx ,int size , uint8_t *buf_in);
+
 
 #define RTDNVRamStartup()                              RTDEepromStartup()
 #define RTDNVRamWholeRestore()                         RTDEepromWholeRestore()
@@ -223,6 +265,8 @@ extern void RTDEepromSavePanelUsedTimeData(void);
 #define RTDNVRamSaveSixColorData()                     RTDEepromSaveSixColorData()
 #define RTDNVRamRestoreSixColorData()                  RTDEepromRestoreSixColorData()
 #define RTDNVRamSavePanelUsedTimeData()                RTDEepromSavePanelUsedTimeData()
+#define RTDNVRamLoadGammaModeData(a,b,c)               RTDEepromLoadGammaModeData(a,b,c)
+#define RTDNVRamSaveGammaModeData(a,b,c,d,e)           RTDEepromSaveGammaModeData(a,b,c,d,e) 
 
 #else // Else of #if(_SYSTEM_EEPROM_EMULATION_SUPPORT == _OFF)
 

@@ -17,6 +17,10 @@ void s_rootkey(char*para);
 //void s_sharpness(char *para) ;
 void s_backlight(char *para) ;
 void s_reset(char *para) ;
+void s_secureboot(char *para);
+void s_pq(char* para);
+void s_gamma(char* para);
+void s_gdata(char*para);
 
 //void s_colortemp(char *para) ;
 //void s_tiling(char*para);
@@ -54,7 +58,11 @@ const struct command commands[] = {
 //  {"s_tiling", s_tiling, "s_tiling row column pos\r\n"},
 //  {"s_aspect", s_aspect, "s_aspect 0~4\r\n"},
 //  {"s_pattern", s_pattern, "s_pattern 0/1 r(0~255) g(0~255) b(0~255)\r\n"}, 
-    {"s_rootkey", s_rootkey, "s_rootkey \r\n"},
+    {"s_rootkey", s_rootkey, "s_rootkey " " \r\n"},
+	{"s_secureboot", s_secureboot, "s_rootkey \r\n"},
+	{"s_pq", s_pq, "s_pq 0~1\r\n"},
+	{"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
+	{"s_gdata", s_gdata, "s_gdata \r\n"},
 
  // {"g_colorinfo", g_colorinfo, "g_colorinfo : colorspace colorrange colorimetry \r\n"},
    
@@ -436,6 +444,101 @@ void s_reset(char *para)
   sendOK();
 
 }
+void s_secureboot(char *para)
+{
+
+  para =NULL;
+#if(_SECURE_BOOT == _ON)     
+  secure_boot(0);
+#endif
+  sendOK();
+
+}
+void s_pq(char* para)
+{
+  BYTE u32Para = atoi(para);
+
+  if(u32Para)
+  {
+	  ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
+	  UserCommonAdjustGammaRegionEnable(_FUNCTION_OFF);
+	  
+
+	  ScalerColorSRGBEnable(_FUNCTION_ON);// 3x3 matrix
+	  ScalerColorDCCEnable(_FUNCTION_ON);
+	  ScalerColorICMEnable(_FUNCTION_ON);
+
+	  if(GET_OSD_GAMMA() != _GAMMA_OFF)
+	  {
+	    UserAdjustGamma(GET_OSD_GAMMA());
+		
+	  }
+	  
+	   ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
+	   UserCommonAdjustGammaRegionEnable(_FUNCTION_ON);
+
+  }
+  else // pq off
+  {
+		  ScalerColorSRGBEnable(_FUNCTION_OFF);// 3x3 matrix
+		  ScalerColorBrightnessEnable(_FUNCTION_OFF);
+		  ScalerColorContrastEnable(_FUNCTION_OFF);
+	  
+		//  ScalerColorSpaceConvertIDomainEnable(_OFF);
+		//  ScalerColorSpaceConvertDDomainEnable(_OFF);
+		  ScalerColorDCCEnable(_FUNCTION_OFF);
+		  ScalerColorICMEnable(_FUNCTION_OFF);
+
+
+
+  }
+   sendOK();
+
+}
+void s_gamma(char* para)
+{
+	BYTE u32Para = atoi(para);
+#if 1	
+	ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
+	UserCommonAdjustGammaRegionEnable(_FUNCTION_OFF);
+
+    
+    if(u32Para <= _GAMMA_AMOUNT && GET_OSD_GAMMA() != _GAMMA_OFF)
+    {
+        UserAdjustGamma(u32Para);
+        ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
+        UserCommonAdjustGammaRegionEnable(_FUNCTION_ON);
+    }	
+#endif	
+	sendOK();
+
+
+}
+void s_gdata(char*para)
+{
+
+  BYTE idx , i=0;
+  BYTE channel;
+  BYTE gidx =0 ;
+  BYTE buf_in[40];
+  //------------------
+  idx= para[0]-0x30;
+  channel = para[1]-0x30;
+  gidx = para[2]-0x30;
+ 
+  //---------------------------
+  for(i=0; i<40 ;i++)
+  {
+	  buf_in[idx*40+i] = para[3+i];
+
+  }
+  // trasmit gdata completely
+  // save gamma data to eeprom directly
+ RTDNVRamSaveGammaModeData(idx,  channel ,  gidx , sizeof(buf_in) , buf_in);
+
+ sendOK();
+
+}
 
 void g_backlight(char *para) 
 {
@@ -493,7 +596,8 @@ void s_help(char *params)
 	params=NULL;
    // printf("support command list\r\n");
 
-	for (i = 0; commands[i].name; i++){
+	for (i = 0; commands[i].name; i++)
+	{
 
 		printf("%s",commands[i].syntax);
 
@@ -635,11 +739,9 @@ void UserInterfaceUartIntHandler_SERIALPORT(void)
        if((gB_RcvCount > 1) && g_pucUartData[gB_RcvCount-1] == '\n' && g_pucUartData[gB_RcvCount-2] == '\r')  // if(is_uartbuf_ready(g_pucUartData,gB_RcvCount))
 	   {
             StopRcvMsg();
-			// gB_RcvStatus = RCV_READY;	
-	       // gB_RcvComplete =1 ;
             memcpy(acRecvBuf, g_pucUartData, gB_RcvCount);
             memset(g_pucUartData , 0 ,MAX_BUFF_SIZE);
-		    gB_RcvCount =0 ;
+		    gB_RcvCount =0 ;			
 
 	    }
 		

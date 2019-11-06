@@ -234,7 +234,7 @@ void UserAdjustBacklight(WORD usBacklight)
 #endif
 
     // Adjust backlight by changing PWM duty
-    PCB_BACKLIGHT_PWM(usBacklight);
+    PCB_BACKLIGHT_PWM(usBacklight); // 0-0xff
 }
 
 //----------------------------------------------------------------------------
