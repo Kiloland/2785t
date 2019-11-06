@@ -532,12 +532,14 @@
 //        5: TCON[0],  8: IICSDA2)
 
 // DP_HOT_PLUG_0
-#define _PIN_201                                (1 & 0x0F) // Page 10-0x32[2:0]
+// TX
+#define _PIN_201                                (8 & 0x0F) // Page 10-0x32[2:0]
 // 0 ~ 8 (0: P8D2i<I>,    1: P8D2o<PP>,   2: P8D2o<OD>,   3:  int0, 4: Test4b_out0,
 //        5: Test4b_out1, 6: Test4b_out2, 7: Test4b_out3, 8: TXD)
 
 // DP_HOT_PLUG_1
-#define _PIN_200                                (1 & 0x0F) // Page 10-0x33[2:0]
+// RX
+#define _PIN_200                                (8 & 0x0F) // Page 10-0x33[2:0]
 // 0 ~ 8 (0: P8D3i<I>,    1: P8D3o<PP>,   2: P8D3o<OD>,   3: int1, 4: Test4b_out0,
 //        5: Test4b_out1, 6: Test4b_out2, 7: Test4b_out3, 8: RXD)
 

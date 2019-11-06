@@ -21,6 +21,8 @@
 
 #include "SysInclude.h"
 #include "uart.h"
+#include "ScalerCommonRegLibInclude.h"
+
 //****************************************************************************
 // DEFINITIONS / MACROS
 //****************************************************************************
@@ -65,6 +67,7 @@ void main(void)
     do
     {
         SysMainSystemInitial();
+		printf("get id code=0x%bx\r\n",ScalerGlobalGetIDCode());
 
         while(SysMainSytemPowerDetect() == _TRUE)
         {

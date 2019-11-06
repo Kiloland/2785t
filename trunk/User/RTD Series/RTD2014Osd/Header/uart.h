@@ -2,7 +2,7 @@
 #define __UART_H
 
 #if(_UART_SUPPORT == _ON)
-	
+#include <stdio.h>                /* prototype declarations for I/O functions */	
 #define MAX_BUFF_SIZE (64)
 
 struct command {

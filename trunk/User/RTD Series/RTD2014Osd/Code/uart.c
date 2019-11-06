@@ -1,6 +1,5 @@
 #include "UserCommonInclude.h"
 #include "uart.h"
-#include <stdio.h>                /* prototype declarations for I/O functions */
 #include <string.h>
 #include <stdlib.h>
 #include "w74m00av.h" 
