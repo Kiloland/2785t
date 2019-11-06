@@ -25,7 +25,7 @@ void s_rotate(char*para);
 
 //void s_colortemp(char *para) ;
 //void s_tiling(char*para);
-//void s_aspect(char*para);
+void s_aspect(char*para);
 //void s_pattern(char*para);
 
 
@@ -37,8 +37,8 @@ void g_brightness(char* para);
 void g_sharpness(char *para) ;
 void g_backlight(char *para) ;
 //void g_colortemp(char *para) ;
-//void g_aspect(char*para);
-//void g_paneltime(char*para);
+void g_aspect(char*para);
+void g_paneltime(char*para);
 #define TEST_ARGS_SPLIT " "
 
 BYTE acRecvBuf[MAX_BUFF_SIZE]={0};
@@ -58,7 +58,7 @@ const struct command commands[] = {
     {"reset",s_reset,"reset:user reset\r\n"} ,
 //  {"s_colortemp", s_colortemp, "s_colortemp 0~5\r\n"},
 //  {"s_tiling", s_tiling, "s_tiling row column pos\r\n"},
-//  {"s_aspect", s_aspect, "s_aspect 0~4\r\n"},
+  {"s_aspect", s_aspect, "s_aspect 0~4\r\n"},
 //  {"s_pattern", s_pattern, "s_pattern 0/1 r(0~255) g(0~255) b(0~255)\r\n"}, 
     {"s_rootkey", s_rootkey, "s_rootkey " " \r\n"},
 	{"s_secureboot", s_secureboot, "s_rootkey \r\n"},
@@ -75,8 +75,8 @@ const struct command commands[] = {
   {"g_brightness",g_brightness,"g_brightness:get brightness value\r\n"} ,
   {"g_sharpness", g_sharpness, "g_sharpness:get sharpness value \r\n"},
    {"g_backlight", g_backlight, "g_backlight:get backlight value\r\n"},
- // {"g_aspect", g_aspect, "g_aspect:get aspect ratio value\r\n"},
- // {"g_paneltime", g_paneltime, "g_paneltime:get panel time (hour min)\r\n"},
+  {"g_aspect", g_aspect, "g_aspect:get aspect ratio value\r\n"},
+  {"g_paneltime", g_paneltime, "g_paneltime:get panel time (hour min)\r\n"},
 
   {"help", s_help,"help:show function\r\n"} ,
 
@@ -152,50 +152,7 @@ WORD gB_on=0 ,gB_r=0, gB_g=0, gB_b=0 ;
    }
 
 }
-void g_paneltime(char *para) 
-{
- // WORD u32Para;
-  para= NULL;
- // u32Para =GET_OSD_ASPECT_RATIO_TYPE(UserAdjustGetSelectRegionPort());
-  printf("%d %bd\r\n" , GET_PANEL_TIME_HOUR() , GET_PANEL_TIME_MIN());  
 
-}
-void g_aspect(char *para) 
-{
-  WORD u32Para;
-  para= NULL;
-  u32Para =GET_OSD_ASPECT_RATIO_TYPE();
-  printf("%d\r\n" , u32Para);  
-
-}
-
-void s_aspect(char*para)
-{
-
-  WORD u32Para;
-
-   if (para == NULL)
-   {
-	   return;
-   }
-
-  u32Para = atoi(para);
-
-  if(u32Para>=0 && u32Para<=4)
-   {
-	  SET_OSD_ASPECT_RATIO_TYPE( u32Para);
-	 // UserAdjustResetDisplayByPort(GET_OSD_SYSTEM_DISPLAY_REGION());
-	 // SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_INPUTPORTDATA_MSG);
-	    SysModeSetResetTarget(_MODE_ACTION_RESET_TO_DISPLAY_SETTING);
-      sendOK(); 
-  }
-  else{
- sendERR();
-
-  }
-
-
-}
 
 #if 0 
 void s_tiling(char*para)
@@ -316,6 +273,52 @@ void s_power(char *para) // power command
 
 
 #endif
+void g_paneltime(char *para) 
+{
+ // WORD u32Para;
+  para= NULL;
+ // u32Para =GET_OSD_ASPECT_RATIO_TYPE(UserAdjustGetSelectRegionPort());
+  printf("%d %bd\r\n" , GET_PANEL_TIME_HOUR() , GET_PANEL_TIME_MIN());  
+
+}
+
+void g_aspect(char *para) 
+{
+//  BYTE u32Para;
+  para= NULL;
+//  u32Para =GET_OSD_ASPECT_RATIO_TYPE();
+  printf("%d\r\n" , GET_OSD_ASPECT_RATIO_TYPE());  
+
+}
+
+void s_aspect(char*para)
+{
+
+  BYTE u32Para;
+
+   if (para == NULL)
+   {
+	   return;
+   }
+
+  u32Para = atoi(para);
+
+  if(u32Para>=0 && u32Para<=4)
+   {
+	  SET_OSD_ASPECT_RATIO_TYPE( u32Para);
+	 // UserAdjustResetDisplayByPort(GET_OSD_SYSTEM_DISPLAY_REGION());
+	 // SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_INPUTPORTDATA_MSG);
+	    SysModeSetResetTarget(_MODE_ACTION_RESET_TO_DISPLAY_SETTING);
+      sendOK(); 
+  }
+  else{
+ sendERR();
+
+  }
+
+
+}
+
 void s_rotate(char*para)
 {
 
