@@ -39,6 +39,8 @@ void g_backlight(char *para) ;
 //void g_colortemp(char *para) ;
 void g_aspect(char*para);
 void g_paneltime(char*para);
+void g_nvram(char*para);
+
 #define TEST_ARGS_SPLIT " "
 
 BYTE acRecvBuf[MAX_BUFF_SIZE]={0};
@@ -77,6 +79,7 @@ const struct command commands[] = {
    {"g_backlight", g_backlight, "g_backlight:get backlight value\r\n"},
   {"g_aspect", g_aspect, "g_aspect:get aspect ratio value\r\n"},
   {"g_paneltime", g_paneltime, "g_paneltime:get panel time (hour min)\r\n"},
+	  {"g_nvram", g_nvram, "g_nvram:gamma idx, channel(rgb)\r\n"},
 
   {"help", s_help,"help:show function\r\n"} ,
 
@@ -602,6 +605,25 @@ void s_rootkey(char*para)
    WB_RPMC_WrRootKey(0,"WINDBOND");
 #endif
    sendOK(); 
+
+}
+void g_nvram(char *para) 
+{
+   BYTE para1 ;
+   BYTE para2 ;
+   int i;
+   BYTE buf[320]; 
+
+  sscanf(para,  "%d" TEST_ARGS_SPLIT "%d" ,&para1, &para2); // format string
+
+  //printf("%bd %bd\r\n" , para1, para2);  
+
+  RTDNVRamLoadGammaModeData(para1,para2,buf);
+
+  for (i = 0; i < 320; i += 8)
+  {
+ 	printf("%bx,%bx,%bx,%bx,%bx,%bx,%bx,%bx \r\n", buf[i], buf[i + 1], buf[i + 2], buf[i + 3], buf[i+4], buf[i + 5], buf[i + 6], buf[i + 7]);
+  }
 
 }
 
