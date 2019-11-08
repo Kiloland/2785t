@@ -160,14 +160,6 @@ void uncompress(uint8_t pgamma[320] , uint8_t buf[2052]) // 256*10bit to 1024*14
 
 
 
-
-/*
-void RTDEepromRestoreGammaModeData(void)
-{
-
-
-}
-*/
 BYTE calucalte_checksum(BYTE buf[] , int len)
 {
 
@@ -185,21 +177,41 @@ BYTE calucalte_checksum(BYTE buf[] , int len)
 }
 
 
-bit check_checksum(void)
+bit check_checksum(BYTE ucGamma, BYTE pucGammaTableArray[320])
 {
-
-#define CRC_SIZE 8
 
 	  bit ret = _FALSE;
 	  BYTE buf_out ;
-	  BYTE crc[CRC_SIZE] ;
+	//  BYTE crc;
+#if 1
+	 switch(ucGamma)
+	 {
+	    default:
+        case 0:
+			 UserCommonEepromRead(GAMMA_MODE1_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 1:
+			 UserCommonEepromRead(GAMMA_MODE2_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 2:
+			 UserCommonEepromRead(GAMMA_MODE3_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 3:
+			 UserCommonEepromRead(GAMMA_MODE4_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 4:
+			 UserCommonEepromRead(GAMMA_MODE5_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 5:
+			 UserCommonEepromRead(GAMMA_MODE6_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+	 }
 	
-	  UserCommonEepromRead(GAMMA_MODE1_ADDRESS_START, 1, (BYTE *)(&buf_out));
-	  UserCommonEepromRead(GAMMA_MODE1_ADDRESS, 8, (BYTE *)(&crc));
-     if(buf_out == calucalte_checksum(crc, CRC_SIZE))
+     if(buf_out == calucalte_checksum(pucGammaTableArray, sizeof(pucGammaTableArray)))
 	 	ret= _TRUE;
-     
-	
+
+	 // printf("buf_out = %bd \r\n", buf_out);
+#endif	 
 	  return ret ;
 }
 
@@ -222,6 +234,14 @@ void NewScalerColorOutputGammaAdjust(BYTE ucGamma, BYTE ucBankNum)
         memset(pgamma ,0 , sizeof(pgamma));
 	
         RTDEepromLoadGammaModeData(ucGamma , _GAMMA_RED_CHANNEL ,pucGammaTableArray );
+		//--------------------
+		if(!check_checksum(ucGamma,pucGammaTableArray)) // checksum fail
+	    {
+			 UserCommonAdjustGamma(tGAMMA_TABLE[ucGamma - 1], GET_CURRENT_BANK_NUMBER());
+			return;
+	     }
+
+		
 	    uncompress(pucGammaTableArray, pgamma);
 
 		ScalerColorOutputGammaChannelCtrl(_GAMMA_RED_CHANNEL, 0x0000, _GAMMA_WRITE_TO_SRAM);
@@ -321,10 +341,10 @@ void UserAdjustGamma(BYTE ucGamma)
         ScalerColorRGBOutputGammaEnable(_FUNCTION_OFF);
 #endif
       
-		if(check_checksum())// && secure_boot(0))
-			  NewScalerColorOutputGammaAdjust(ucGamma-1, GET_CURRENT_BANK_NUMBER());
-        else
-        UserCommonAdjustGamma(tGAMMA_TABLE[ucGamma - 1], GET_CURRENT_BANK_NUMBER());
+	
+	    NewScalerColorOutputGammaAdjust(ucGamma-1, GET_CURRENT_BANK_NUMBER());
+        
+        //UserCommonAdjustGamma(tGAMMA_TABLE[ucGamma - 1], GET_CURRENT_BANK_NUMBER());
 
 #if(_RGB_GAMMA_FUNCTION == _ON)
         UserAdjustRGBGamma(ucGamma);

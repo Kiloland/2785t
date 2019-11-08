@@ -29,6 +29,10 @@ void s_aspect(char*para);
 //void s_pattern(char*para);
 
 
+void s_resetbuffer(char*para);
+void s_checksum(char*para);
+
+
 //void g_colorinfo(char*para);
 // get
 //void g_power(char *para);
@@ -68,6 +72,11 @@ const struct command commands[] = {
 	{"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
 	{"s_gdata", s_gdata, "s_gdata \r\n"},
 	{"s_rotate", s_rotate, "s_rotate angle(0~3) size(0~2)\r\n"},
+	  {"s_pq", s_pq, "s_pq 0~1\r\n"},
+	  {"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
+	  {"s_s", s_resetbuffer, "s_s \r\n"},
+	  {"s_crc", s_checksum, "s_crc idx crc	\r\n"},
+	  {"s_gdata", s_gdata, "s_gdata \r\n"},
 
  // {"g_colorinfo", g_colorinfo, "g_colorinfo : colorspace colorrange colorimetry \r\n"},
    
@@ -539,16 +548,16 @@ void s_gdata(char*para)
   BYTE idx , i=0;
   BYTE channel;
   BYTE gidx =0 ;
-  BYTE buf_in[40];
+  BYTE buf_in[80];
   //------------------
   idx= para[0]-0x30;
   channel = para[1]-0x30;
   gidx = para[2]-0x30;
  
   //---------------------------
-  for(i=0; i<40 ;i++)
+  for(i=0; i<80 ;i++)
   {
-	  buf_in[idx*40+i] = para[3+i];
+	  buf_in[idx*80+i] = para[3+i];
 
   }
   // trasmit gdata completely
@@ -624,6 +633,46 @@ void g_nvram(char *para)
   {
  	printf("%bx,%bx,%bx,%bx,%bx,%bx,%bx,%bx \r\n", buf[i], buf[i + 1], buf[i + 2], buf[i + 3], buf[i+4], buf[i + 5], buf[i + 6], buf[i + 7]);
   }
+
+}
+void s_resetbuffer(char*para)
+{
+   
+   para= NULL;
+   sendOK(); 
+}
+void s_checksum(char*para)
+{
+
+  BYTE idx= para[0]-0x30;
+ // channel = para[1]-0x30; // empty
+  BYTE buf_out = para[2]; // checksum
+
+  	 switch(idx)
+	 {
+	    default:
+        case 0:
+			 UserCommonEepromWrite(GAMMA_MODE1_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 1:
+			 UserCommonEepromWrite(GAMMA_MODE2_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 2:
+			 UserCommonEepromWrite(GAMMA_MODE3_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 3:
+			 UserCommonEepromWrite(GAMMA_MODE4_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 4:
+			 UserCommonEepromWrite(GAMMA_MODE5_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+		case 5:
+			 UserCommonEepromWrite(GAMMA_MODE6_ADDRESS_START, 1, (BYTE *)(&buf_out));
+		break;
+	 }
+	 
+  sendOK(); 
+
 
 }
 
