@@ -41,7 +41,7 @@
 #ifdef _CUSTOM_SYSTEM_DEFAULT_DATA
 StructSystemDataType code g_stSystemDefaultData = _CUSTOM_SYSTEM_DEFAULT_DATA;
 #else
-StructSystemDataType code g_stSystemDefaultData =
+ StructSystemDataType code g_stSystemDefaultData =
 {
     0x00,                              // Mode Slot Index
     _DCLK_SPREAD_RANGE,                // SSC

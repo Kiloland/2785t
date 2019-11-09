@@ -440,8 +440,23 @@ void RTDEepromSaveGammaModeData(uint8_t index, uint8_t channel , int idx ,int si
 // Input Value  : None
 // Output Value : None
 //--------------------------------------------------
+static BYTE cal_crc(BYTE *buf , int len)
+{
+  BYTE i ;
+  BYTE crc =0;
+//  BYTE input[len] = (BYTE*)buf;
+	  
+ for(i=0 ; i<len ; i++ ) 
+ {
+   crc= crc+ buf[i];
+ }
+ 
+ return crc ;
+}
+
 void RTDEepromStartup(void)
 {
+#if 0
     BYTE ucCnt = 0;
 
     // Check twice if VERSION CODE matches
@@ -495,7 +510,7 @@ void RTDEepromStartup(void)
 
         pData[1] = _VERSION_CODE;
         UserCommonEepromWrite(_EEPROM_VERSION_CODE_ADDRESS, 1, &pData[1]);
-    }
+    }	
     else
     {
         UserCommonEepromLoadSystemData();
@@ -536,6 +551,82 @@ void RTDEepromStartup(void)
     */
 
     RTDEepromLoadColorSetting(GET_COLOR_TEMP_TYPE());
+#else
+
+   BYTE crc =0;
+   UserCommonEepromRead(_EEPROM_CHECKSUM_ADDRESS, 2, pData);
+   UserCommonEepromLoadSystemData(); // read system data
+   crc = cal_crc((BYTE*)&g_stSystemData,sizeof(StructSystemDataType));
+   if(pData[0] != crc) // crc fail
+   {
+      pData[0] = crc ;
+      UserCommonEepromRestoreSystemData();
+      RTDEepromRestorePanelUsedTimeData();
+
+	  UserCommonEepromWrite(_EEPROM_CHECKSUM_ADDRESS, 1, &pData[0]);
+   }
+  
+
+   RTDEepromLoadOSDData(); // read user data
+ 
+   crc = cal_crc((BYTE*)&g_stOSDUserData,sizeof(StructOsdUserDataType));
+   if(pData[1] != crc) // crc fail
+   {
+        pData[1] = crc ;
+        g_stColorProcData = tColorTempDefaultData[_CT_USER];
+        RTDEepromSaveColorSetting(_CT_USER);
+
+        UserCommonEepromRestoreSystemData();
+        RTDEepromRestoreOSDData();
+
+        UserCommonEepromRestoreModeUserData();
+
+        RTDEepromRestoreBriCon();
+        RTDEepromRestoreSixColorData();
+
+        UserCommonEepromWrite(_EEPROM_VERSION_CODE_ADDRESS, 1, &pData[1]);
+   }
+   else
+   {
+     
+        RTDEepromLoadSixColorData();
+        RTDEepromLoadPanelUsedTimeData();
+
+#if(_PANEL_EXIST_MULTIPANEL == _ON)
+        UserCommonEepromRead(_PANEL_INDEX_ADDRESS, 1, pData);
+        SET_MDOMAIN_PANEL_INDEX(pData[0]);
+#endif
+
+        // Check PCM Flag
+        if(GET_OSD_PCM_STATUS() > _PCM_OSD_AMOUNT)
+        {
+            SET_OSD_PCM_STATUS(_PCM_OSD_NATIVE);
+            RTDEepromSaveOSDData();
+        }
+
+#if(_OSD_3D_FUNCTION == _ON)
+        if((GET_OSD_3DOSD_STATUS() == _ON) &&
+           ((GET_OSD_ROTATE_STATUS() == _OSD_ROTATE_DEGREE_90) ||
+            (GET_OSD_ROTATE_STATUS() == _OSD_ROTATE_DEGREE_270)))
+        {
+            SET_OSD_ROTATE_STATUS(_OSD_ROTATE_DEGREE_0);
+            RTDEepromSaveOSDData();
+        }
+#endif
+    }
+
+    // SysSourceSetScanType(_SOURCE_SWITCH_AUTO_IN_GROUP);
+    /*
+    if(UserCommonNVRamGetSystemData(_SOURCE_SCAN_TYPE) != SysSourceGetScanType())
+    {
+        UserCommonNVRamSetSystemData(_SOURCE_SCAN_TYPE, SysSourceGetScanType());
+        SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_SYSTEMDATA_MSG);
+    }
+    */
+
+    RTDEepromLoadColorSetting(GET_COLOR_TEMP_TYPE());
+
+#endif	
 }
 
 //--------------------------------------------------

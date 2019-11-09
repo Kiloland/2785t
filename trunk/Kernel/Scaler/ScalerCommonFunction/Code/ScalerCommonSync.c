@@ -285,7 +285,7 @@ void ScalerSyncDpCheckHdcpEnable(void);
 void ScalerSyncDpTxPowerProc(EnumPowerAction enumPowerAction);
 bit ScalerSyncDpTxCloneOutputPortCheck(BYTE ucInputPort);
 void ScalerSyncDpTxHdcpUpstreamSwitchProc(BYTE ucInputPort);
-EnumDPRxHDCPUpstreamAuthStatus ScalerSyncDpHdcpGetUpstreamEvent(void);
+ EnumDPRxHDCPUpstreamAuthStatus ScalerSyncDpHdcpGetUpstreamEvent(void);
 bit ScalerSyncDpHdcpGetUpstreamEncryptStatus(void);
 
 #if(_DP_HDCP_2_2_SUPPORT == _ON)

@@ -160,11 +160,11 @@ void uncompress(uint8_t pgamma[320] , uint8_t buf[2052]) // 256*10bit to 1024*14
 
 
 
-BYTE calucalte_checksum(BYTE buf[] , int len)
+static BYTE calucalte_checksum(BYTE *buf , int len)
 {
 
  BYTE i ;
- BYTE crc ;
+ BYTE crc=0 ;
  
 	  
  for(i=0 ; i<len ; i++ ) 
