@@ -378,22 +378,22 @@ void RTDEepromLoadGammaModeData(uint8_t index , uint8_t channel , uint8_t* buf_o
   {
     default:
     case 0:
-		UserCommonEepromRead(GAMMA_MODE1_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+		UserCommonEepromRead(GAMMA_MODE1_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, buf_out);
 	break;
 	 case 1:
-		UserCommonEepromRead(GAMMA_MODE2_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+		UserCommonEepromRead(GAMMA_MODE2_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, buf_out);
 	break;
 	 case 2:
-		UserCommonEepromRead(GAMMA_MODE3_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+		UserCommonEepromRead(GAMMA_MODE3_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, buf_out);
 	break;
 	 case 3:
-		UserCommonEepromRead(GAMMA_MODE4_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+		UserCommonEepromRead(GAMMA_MODE4_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, buf_out);
 	break;
 	 case 4:
-		UserCommonEepromRead(GAMMA_MODE5_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+		UserCommonEepromRead(GAMMA_MODE5_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, buf_out);
 	break;
 	 case 5:
-		UserCommonEepromRead(GAMMA_MODE6_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, (uint8_t *)(&buf_out));
+		UserCommonEepromRead(GAMMA_MODE6_ADDRESS + channel * GAMMA_SIZE, GAMMA_SIZE, buf_out);
 	break;
 
   }
@@ -411,23 +411,23 @@ void RTDEepromSaveGammaModeData(uint8_t index, uint8_t channel , int idx ,int si
   {
     default:
     case 0:
-		 UserCommonEepromWrite(GAMMA_MODE1_ADDRESS_START + channel * GAMMA_SIZE + (idx*size), size, (uint8_t *)(&buf_in));
+		 UserCommonEepromWrite(GAMMA_MODE1_ADDRESS_START + channel * GAMMA_SIZE + (idx*size), size, buf_in);
 	break;
 	
 	 case 1:
-		 UserCommonEepromWrite(GAMMA_MODE2_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+		 UserCommonEepromWrite(GAMMA_MODE2_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, buf_in);
 	break;
 	 case 2:
-		 UserCommonEepromWrite(GAMMA_MODE3_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+		 UserCommonEepromWrite(GAMMA_MODE3_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, buf_in);
 	break;
 	 case 3:
-		 UserCommonEepromWrite(GAMMA_MODE4_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+		 UserCommonEepromWrite(GAMMA_MODE4_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, buf_in);
 	break;
 	 case 4:
-		 UserCommonEepromWrite(GAMMA_MODE5_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+		 UserCommonEepromWrite(GAMMA_MODE5_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, buf_in);
 	break;
 	 case 5:
-		 UserCommonEepromWrite(GAMMA_MODE6_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, (uint8_t *)(&buf_in));
+		 UserCommonEepromWrite(GAMMA_MODE6_ADDRESS_START + channel * GAMMA_SIZE+ (idx*size), size, buf_in);
 	break;
 	
   }
@@ -560,7 +560,7 @@ void RTDEepromStartup(void)
    if(pData[0] != crc) // crc fail
    {
       pData[0] = crc ;
-      UserCommonEepromRestoreSystemData();
+      RTDEepromWholeRestore();//UserCommonEepromRestoreSystemData();
       RTDEepromRestorePanelUsedTimeData();
 
 	  UserCommonEepromWrite(_EEPROM_CHECKSUM_ADDRESS, 1, &pData[0]);

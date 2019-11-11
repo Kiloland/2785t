@@ -177,12 +177,12 @@ static BYTE calucalte_checksum(BYTE *buf , int len)
 }
 
 
-bit check_checksum(BYTE ucGamma, BYTE pucGammaTableArray[320])
+bit check_checksum(BYTE ucGamma, BYTE* pucGammaTableArray)
 {
 
 	  bit ret = _FALSE;
 	  BYTE buf_out ;
-	//  BYTE crc;
+	  BYTE crc=0;
 #if 1
 	 switch(ucGamma)
 	 {
@@ -206,8 +206,10 @@ bit check_checksum(BYTE ucGamma, BYTE pucGammaTableArray[320])
 			 UserCommonEepromRead(GAMMA_MODE6_ADDRESS_START, 1, (BYTE *)(&buf_out));
 		break;
 	 }
+	 
+      crc = calucalte_checksum(pucGammaTableArray, sizeof(pucGammaTableArray));
 	
-     if(buf_out == calucalte_checksum(pucGammaTableArray, sizeof(pucGammaTableArray)))
+     if(buf_out == crc)
 	 	ret= _TRUE;
 
 	 // printf("buf_out = %bd \r\n", buf_out);

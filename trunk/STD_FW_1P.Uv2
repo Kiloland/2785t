@@ -18,10 +18,6 @@ Group (UserCommonFunction)
 Group (RTD2014Function)
 Group (RTD2014Osd)
 Group (RTDFactory)
-Group (NoneFunction)
-Group (NoneOsd)
-Group (NoneFactory)
-Group (Device)
 
 File 1,5,<.\Project\Header\User_Project_List.h><User_Project_List.h>
 File 1,5,<.\Project\Header\User_Project_Include.h><User_Project_Include.h>
@@ -358,40 +354,6 @@ File 14,5,<.\User\RTD Series\RTD2014Osd\Header\w74m00av.h><w74m00av.h>
 File 15,5,<.\User\RTD Factory\Header\RTDFactoryInclude.h><RTDFactoryInclude.h>
 File 15,1,<.\User\RTD Factory\Code\RTDFactoryFunction.c><RTDFactoryFunction.c>
 File 15,1,<.\User\RTD Factory\Code\RTDFactoryMode.c><RTDFactoryMode.c>
-File 16,5,<.\User\None Series\NoneFunction\Header\NoneUserInclude.h><NoneUserInclude.h>
-File 16,5,<.\User\None Series\NoneFunction\Header\NoneUserModeTable.h><NoneUserModeTable.h>
-File 16,1,<.\User\None Series\NoneFunction\Code\NoneUserInterface.c><NoneUserInterface.c>
-File 16,1,<.\User\None Series\NoneFunction\Code\NoneUserAdjust.c><NoneUserAdjust.c>
-File 16,1,<.\User\None Series\NoneFunction\Code\NoneUserAdjust3DGamma.c><NoneUserAdjust3DGamma.c>
-File 16,1,<.\User\None Series\NoneFunction\Code\NoneUserAdjustOutputGamma.c><NoneUserAdjustOutputGamma.c>
-File 16,1,<.\User\None Series\NoneFunction\Code\NoneUserAdjustUniformity.c><NoneUserAdjustUniformity.c>
-File 16,1,<.\User\None Series\NoneFunction\Code\NoneUserBoot.c><NoneUserBoot.c>
-File 17,5,<.\User\None Series\NoneOsd\Header\NoneInclude.h><NoneInclude.h>
-File 17,5,<.\User\None Series\NoneOsd\Header\NoneTimerInclude.h><NoneTimerInclude.h>
-File 17,5,<.\User\None Series\NoneOsd\Header\NoneTimerEventIDUser.h><NoneTimerEventIDUser.h>
-File 17,5,<.\User\None Series\NoneOsd\Header\NoneNVRamOsd.h><NoneNVRamOsd.h>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneOsdTable.c><NoneOsdTable.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneDdcci.c><NoneDdcci.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneNVRamOsd.c><NoneNVRamOsd.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneKey.c><NoneKey.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneOsd.c><NoneOsd.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneOsdDisplay.c><NoneOsdDisplay.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneOsdFont.c><NoneOsdFont.c>
-File 17,1,<.\User\None Series\NoneOsd\Code\NoneOsdFunc.c><NoneOsdFunc.c>
-File 18,5,<.\User\None Factory\Header\NoneFactoryInclude.h><NoneFactoryInclude.h>
-File 18,1,<.\User\None Factory\Code\NoneFactoryFunction_RL6193.c><NoneFactoryFunction_RL6193.c>
-File 18,1,<.\User\None Factory\Code\NoneFactoryFunction_RL6369.c><NoneFactoryFunction_RL6369.c>
-File 18,1,<.\User\None Factory\Code\NoneFactoryFunction_RL6410.c><NoneFactoryFunction_RL6410.c>
-File 18,1,<.\User\None Factory\Code\NoneFactoryFunction_RL6432.c><NoneFactoryFunction_RL6432.c>
-File 18,1,<.\User\None Factory\Code\NoneFactoryFunction_RL6492.c><NoneFactoryFunction_RL6492.c>
-File 19,1,<.\User\Device\Code\Led_Driver_O2_OZ9913.c><Led_Driver_O2_OZ9913.c>
-File 19,1,<.\User\Device\Code\Led_Driver_AUSTRIA_AS3820.c><Led_Driver_AUSTRIA_AS3820.c>
-File 19,1,<.\User\Device\Code\TypeC_Pmic_ONSEMI_NCP81239.c><TypeC_Pmic_ONSEMI_NCP81239.c>
-File 19,1,<.\User\Device\Code\TypeC_Pmic_SILERGY_SY9329.c><TypeC_Pmic_SILERGY_SY9329.c>
-File 19,1,<.\User\Device\Code\TypeC_Pmic_SILERGY_SY9228.c><TypeC_Pmic_SILERGY_SY9228.c>
-File 19,1,<.\User\Device\Code\TypeC_Pmic_System_Solution.c><TypeC_Pmic_System_Solution.c>
-File 19,1,<.\User\Device\Code\TypeC_Pmic_INTERSIL_RAA489800.c><TypeC_Pmic_INTERSIL_RAA489800.c>
-File 19,1,<.\User\Device\Code\TypeC_Pmic_SILERGY_SY8665.c><TypeC_Pmic_SILERGY_SY8665.c>
 
 
 Options 1,0,0  // Target 'RL6432_Project'
@@ -807,102 +769,6 @@ Options 1,15,0  // Group 'RTDFactory'
  CustArgs ()
  LibMods ()
  BankNo=10
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
- AX51FL=170
- AX51MSC ()
- AX51SET ()
- AX51RST ()
- INCA5 ()
-EndOpt
-
-Options 1,16,0  // Group 'NoneFunction'
- PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=0
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=7
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
- AX51FL=170
- AX51MSC ()
- AX51SET ()
- AX51RST ()
- INCA5 ()
-EndOpt
-
-Options 1,17,0  // Group 'NoneOsd'
- PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=0
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=7
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
- AX51FL=170
- AX51MSC ()
- AX51SET ()
- AX51RST ()
- INCA5 ()
-EndOpt
-
-Options 1,18,0  // Group 'NoneFactory'
- PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=0
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=7
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
- AX51FL=170
- AX51MSC ()
- AX51SET ()
- AX51RST ()
- INCA5 ()
-EndOpt
-
-Options 1,19,0  // Group 'Device'
- PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=2
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=9
  C51FL=177119914
  C51VA=0
  C51MSC ()
@@ -2751,120 +2617,6 @@ Options 1,14,323  // File 'RTD2014OsdFontDynamicIcon_2.c'
  CustArgs ()
  LibMods ()
  BankNo=11
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
-EndOpt
-
-Options 1,16,338  // File 'NoneUserInterface.c'
- PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=2
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=65535
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
-EndOpt
-
-Options 1,16,340  // File 'NoneUserAdjust3DGamma.c'
- PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=2
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=8
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
-EndOpt
-
-Options 1,16,342  // File 'NoneUserAdjustUniformity.c'
- PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=2
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=8
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
-EndOpt
-
-Options 1,18,357  // File 'NoneFactoryFunction_RL6193.c'
- PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=0
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=65535
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
-EndOpt
-
-Options 1,18,358  // File 'NoneFactoryFunction_RL6369.c'
- PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=0
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=65535
- C51FL=177119914
- C51VA=0
- C51MSC ()
- C51DEF ()
- C51UDF ()
- INCC5 ()
-EndOpt
-
-Options 1,18,359  // File 'NoneFactoryFunction_RL6410.c'
- PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
- IncBld=0
- AlwaysBuild=2
- GenAsm=2
- AsmAsm=2
- PublicsOnly=2
- StopCode=11
- CustArgs ()
- LibMods ()
- BankNo=65535
  C51FL=177119914
  C51VA=0
  C51MSC ()

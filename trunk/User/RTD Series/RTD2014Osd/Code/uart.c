@@ -557,7 +557,7 @@ void s_gdata(char*para)
   //---------------------------
   for(i=0; i<80 ;i++)
   {
-	  buf_in[idx*80+i] = para[3+i];
+	  buf_in[i] = para[3+i];
 
   }
   // trasmit gdata completely
@@ -623,7 +623,10 @@ void g_nvram(char *para)
    int i;
    BYTE buf[320]; 
 
-  sscanf(para,  "%d" TEST_ARGS_SPLIT "%d" ,&para1, &para2); // format string
+ // sscanf(para,  "%d" TEST_ARGS_SPLIT "%d" ,&para1, &para2); // format string
+  para1 = para[0]-0x30 ;
+  // para[1] = 0x20
+  para2 = para[2] - 0x30 ;
 
   //printf("%bd %bd\r\n" , para1, para2);  
 
