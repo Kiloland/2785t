@@ -28,11 +28,11 @@ void s_rotate(char*para);
 void s_aspect(char*para);
 //void s_pattern(char*para);
 
-
-void s_resetbuffer(char*para);
+/*
+void s_resetbuffer(char*para);*/
 void s_checksum(char*para);
 
-
+void s_reboot(char*para);
 //void g_colorinfo(char*para);
 // get
 //void g_power(char *para);
@@ -72,12 +72,12 @@ const struct command commands[] = {
 	{"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
 	{"s_gdata", s_gdata, "s_gdata \r\n"},
 	{"s_rotate", s_rotate, "s_rotate angle(0~3) size(0~2)\r\n"},
-	  {"s_pq", s_pq, "s_pq 0~1\r\n"},
-	  {"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
-	  {"s_s", s_resetbuffer, "s_s \r\n"},
-	  {"s_crc", s_checksum, "s_crc idx crc	\r\n"},
-	  {"s_gdata", s_gdata, "s_gdata \r\n"},
-
+	{"s_pq", s_pq, "s_pq 0~1\r\n"},
+	{"s_gamma", s_gamma, "s_gamma 0~6\r\n"},
+//	{"s_s", s_resetbuffer, "s_s \r\n"},
+	{"s_crc", s_checksum, "s_crc idx crc	\r\n"},
+	{"s_gdata", s_gdata, "s_gdata: \r\n"},
+	{"s_reboot", s_reboot, "s_reboot: software reset \r\n"},
  // {"g_colorinfo", g_colorinfo, "g_colorinfo : colorspace colorrange colorimetry \r\n"},
    
  // {"g_colortemp", g_colortemp, "g_colortemp:get colotemp value\r\n"},
@@ -634,16 +634,17 @@ void g_nvram(char *para)
 
   for (i = 0; i < 320; i += 8)
   {
- 	printf("%bx,%bx,%bx,%bx,%bx,%bx,%bx,%bx \r\n", buf[i], buf[i + 1], buf[i + 2], buf[i + 3], buf[i+4], buf[i + 5], buf[i + 6], buf[i + 7]);
+ 	printf("%b02x,%b02x,%b02x,%b02x,%b02x,%b02x,%b02x,%b02x \r\n", buf[i], buf[i + 1], buf[i + 2], buf[i + 3], buf[i+4], buf[i + 5], buf[i + 6], buf[i + 7]);
   }
 
 }
+/*
 void s_resetbuffer(char*para)
 {
    
    para= NULL;
    sendOK(); 
-}
+}*/
 void s_checksum(char*para)
 {
 
@@ -678,7 +679,14 @@ void s_checksum(char*para)
 
 
 }
+void s_reboot(char* para)
+{
+ para= NULL;
+ sendOK(); 
+ ScalerGlobalWholeChipReset();
 
+
+}
 void s_help(char *params)
 {
 	int i;
