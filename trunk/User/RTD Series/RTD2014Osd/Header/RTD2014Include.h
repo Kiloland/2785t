@@ -1648,7 +1648,10 @@ typedef enum
     _GAMMA_20,
     _GAMMA_22,
     _GAMMA_24,
-    _GAMMA_AMOUNT = _GAMMA_24,
+    _GAMMA_USER_7300,
+	_GAMMA_USER_6500,
+	_GAMMA_AMOUNT = _GAMMA_USER_6500,
+
 }EnumGammaType;
 
 //--------------------------------------------------

@@ -32,7 +32,7 @@ void s_aspect(char*para);
 void s_resetbuffer(char*para);*/
 void s_checksum(char*para);
 
-void s_reboot(char*para);
+
 //void g_colorinfo(char*para);
 // get
 //void g_power(char *para);
@@ -77,7 +77,7 @@ const struct command commands[] = {
 //	{"s_s", s_resetbuffer, "s_s \r\n"},
 	{"s_crc", s_checksum, "s_crc idx crc	\r\n"},
 	{"s_gdata", s_gdata, "s_gdata: \r\n"},
-	{"s_reboot", s_reboot, "s_reboot: software reset \r\n"},
+
  // {"g_colorinfo", g_colorinfo, "g_colorinfo : colorspace colorrange colorimetry \r\n"},
    
  // {"g_colortemp", g_colortemp, "g_colortemp:get colotemp value\r\n"},
@@ -371,7 +371,7 @@ void s_contrast(char *para)
 
    u32Para = atoi(para);
 
-   if(u32Para>=0 && u32Para<=100)
+   if(u32Para<=100)
    {
     u32Para = UserCommonAdjustPercentToRealValue(u32Para, _CONTRAST_MAX, _CONTRAST_MIN, _CONTRAST_CENTER);
      SET_OSD_CONTRAST(u32Para);
@@ -410,7 +410,7 @@ void s_brightness(char *para)
    u32Para = atoi(para);
 
     // range check
-   if(u32Para>=0 && u32Para<=100)
+   if( u32Para<=100)
    {
       u32Para = UserCommonAdjustPercentToRealValue(u32Para, _BRIGHTNESS_MAX, _BRIGHTNESS_MIN, _BRIGHTNESS_CENTER);
       SET_OSD_BRIGHTNESS(u32Para);
@@ -525,19 +525,22 @@ void s_pq(char* para)
 void s_gamma(char* para)
 {
 	BYTE u32Para = atoi(para);
-#if 1	
+	if(u32Para > _GAMMA_AMOUNT){
+	  sendERR(); return ;
+	  }
+
 	ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
 	UserCommonAdjustGammaRegionEnable(_FUNCTION_OFF);
 
     
-    if(u32Para <= _GAMMA_AMOUNT && GET_OSD_GAMMA() != _GAMMA_OFF)
+    if(u32Para <= _GAMMA_AMOUNT)
     {
         UserAdjustGamma(u32Para);
         ScalerTimerWaitForEvent(_EVENT_DEN_STOP);
         UserCommonAdjustGammaRegionEnable(_FUNCTION_ON);
-		 SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
+		SET_OSD_EVENT_MESSAGE(_OSDEVENT_SAVE_NVRAM_OSDUSERDATA_MSG);
     }	
-#endif	
+
 	sendOK();
 
 
@@ -648,45 +651,30 @@ void s_resetbuffer(char*para)
 void s_checksum(char*para)
 {
 
-  BYTE idx= para[0]-0x30;
- // channel = para[1]-0x30; // empty
-  BYTE buf_out = para[2]; // checksum
-
-  	 switch(idx)
-	 {
-	    default:
-        case 0:
-			 UserCommonEepromWrite(GAMMA_MODE1_ADDRESS_START, 1, (BYTE *)(&buf_out));
-		break;
-		case 1:
-			 UserCommonEepromWrite(GAMMA_MODE2_ADDRESS_START, 1, (BYTE *)(&buf_out));
-		break;
-		case 2:
-			 UserCommonEepromWrite(GAMMA_MODE3_ADDRESS_START, 1, (BYTE *)(&buf_out));
-		break;
-		case 3:
-			 UserCommonEepromWrite(GAMMA_MODE4_ADDRESS_START, 1, (BYTE *)(&buf_out));
-		break;
-		case 4:
-			 UserCommonEepromWrite(GAMMA_MODE5_ADDRESS_START, 1, (BYTE *)(&buf_out));
-		break;
-		case 5:
-			 UserCommonEepromWrite(GAMMA_MODE6_ADDRESS_START, 1, (BYTE *)(&buf_out));
-		break;
-	 }
+   BYTE crc=0 ;
+   int i =0 ,k=0;
+   BYTE buf[320];
+   para= NULL;
+  for(k=0 ; k<6 ;k++)
+  { 
+     crc= 0;
+	 memset(buf , 0 , 320);
 	 
-  sendOK(); 
+     RTDNVRamLoadGammaModeData(k,0,buf);
+   
+	 for (i = 0; i < 320; i ++)
+	 {
+		crc+= buf[i];
+	 }
+	// printf("crc = %bX\r\n", crc);
+	
+    RTDEepromSaveGammaCRC(k,&crc);
+  }
+
 
 
 }
-void s_reboot(char* para)
-{
- para= NULL;
- sendOK(); 
- ScalerGlobalWholeChipReset();
 
-
-}
 void s_help(char *params)
 {
 	int i;
